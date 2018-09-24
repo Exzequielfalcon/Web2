@@ -37,11 +37,8 @@ class TareasView
                   }
                 }
              ?>
-
           </ul>
         </div>
-
-
         <div class="container">
           <h2>Formulario</h2>
           <form method="post" action="agregar">
