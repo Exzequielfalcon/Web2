@@ -12,7 +12,7 @@ class TareasController
   {
     $this->view = new TareasView();
     $this->model = new TareasModel();
-    $this->Titulo = "Lista de Tareas Controlador 1";
+    $this->Titulo = "Rocket League";
   }
 
   function Home(){
