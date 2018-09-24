@@ -1,34 +1,35 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-09-24 17:51:50
+/* Smarty version 3.1.33, created on 2018-09-24 18:16:06
   from 'C:\xampp\htdocs\Proyectos\Web2\templates\home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5ba9081609e523_47233211',
+  'unifunc' => 'content_5ba90dc6043208_23107147',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '11efe057a2f39c3d649c35f3f27018b7f9e948ec' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\Web2\\templates\\home.tpl',
-      1 => 1537804306,
+      1 => 1537805763,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
     'file:header.tpl' => 1,
+    'file:ourhome.tpl' => 1,
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5ba9081609e523_47233211 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ba90dc6043208_23107147 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+$_smarty_tpl->_subTemplateRender("file:ourhome.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
-
     <h1><?php echo $_smarty_tpl->tpl_vars['Titulo']->value;?>
 </h1>
-
+<div class="col-lg-9">
     <div class="container">
       <ul class="list-group">
             <?php
@@ -73,6 +74,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         <button type="submit" class="btn btn-primary">Itemizar</button>
       </form>
     </div>
+    </div>
+
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 }
 }

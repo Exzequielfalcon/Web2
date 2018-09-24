@@ -1,7 +1,7 @@
 {include file="header.tpl"}
-
+{include file="ourhome.tpl"}
     <h1>{$Titulo}</h1>
-
+<div class="col-lg-9">
     <div class="container">
       <ul class="list-group">
             {foreach from=$Tareas item=tarea}
@@ -32,4 +32,6 @@
         <button type="submit" class="btn btn-primary">Itemizar</button>
       </form>
     </div>
+    </div>
+
 {include file="footer.tpl"}
