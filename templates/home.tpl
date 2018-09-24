@@ -6,9 +6,9 @@
       <ul class="list-group">
             {foreach from=$Tareas item=tarea}
               {if $tarea['pintada'] == 1}
-                <li class="list-group-item"><s>{$tarea['clase']} ----- {$tarea['rareza']}</s><a href="borrar/{$tarea['id_categoria']}">BORRAR</a></li>
+                <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']} -- Pintado<a class="float-right" href="borrar/{$tarea['id_categoria']}">BORRAR</a></li>
               {else}
-                <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']}<a href="borrar/{$tarea['id_categoria']}">BORRAR</a> | <a href="completada/{$tarea['pintada']}">COMPLETADA</a></li>
+                <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']}<a class="float-right" href="borrar/{$tarea['id_categoria']}"> BORRAR</a> <p class="float-right">|</p> <a class="float-right" href="completada/{$tarea['pintada']}">  COMPLETADA</a></li>
               {/if}
             {/foreach}
       </ul>

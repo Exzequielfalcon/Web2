@@ -7,7 +7,7 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'TareasController#Home',
       'home'=> 'TareasController#Home',
-      'javito'=> 'TareasController#Home',
+      'agregar'=> 'TareasController#InsertTarea',
       'borrar'=> 'TareasController#BorrarTarea',
       'completada'=> 'TareasController#CompletarTarea'
     ];
