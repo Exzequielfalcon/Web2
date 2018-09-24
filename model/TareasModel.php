@@ -13,32 +13,31 @@ class TareasModel
 
   function Connect(){
     return new PDO('mysql:host=localhost;'
-    .'dbname=tareas;charset=utf8'
+    .'dbname=skin_rocket;charset=utf8'
     , 'root', '');
   }
 
   function GetTareas(){
-
-      $sentencia = $this->db->prepare( "select * from tarea");
+      $sentencia = $this->db->prepare( "select * from categoria");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function InsertarTarea($titulo,$descripcion,$completada){
 
-    $sentencia = $this->db->prepare("INSERT INTO tarea(titulo, descripcion, completada) VALUES(?,?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO categoria(clase, rareza, pintada) VALUES(?,?,?)");
     $sentencia->execute(array($titulo,$descripcion,$completada));
   }
 
   function BorrarTarea($idTarea){
 
-    $sentencia = $this->db->prepare( "delete from tarea where id=?");
+    $sentencia = $this->db->prepare( "delete from categoria where id=?");
     $sentencia->execute(array($idTarea));
   }
 
   function CompletarTarea($id_tarea){
 
-    $sentencia = $this->db->prepare( "update tarea set completada=1 where id=?");
+    $sentencia = $this->db->prepare( "update categoria set completada=1 where id=?");
     $sentencia->execute(array($id_tarea));
   }
 }

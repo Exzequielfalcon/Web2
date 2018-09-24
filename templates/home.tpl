@@ -5,10 +5,10 @@
     <div class="container">
       <ul class="list-group">
             {foreach from=$Tareas item=tarea}
-              {if $tarea['completada'] == 1}
-                <li class="list-group-item"><s>{$tarea['titulo']} ----- {$tarea['descripcion']}</s><a href="borrar/{$tarea['id']}">BORRAR</a></li>
+              {if $tarea['pintada'] == 1}
+                <li class="list-group-item"><s>{$tarea['clase']} ----- {$tarea['rareza']}</s><a href="borrar/{$tarea['id_categoria']}">BORRAR</a></li>
               {else}
-                <li class="list-group-item">{$tarea['titulo']} ----- {$tarea['descripcion']}<a href="borrar/{$tarea['id']}">BORRAR</a> | <a href="completada/{$tarea['id']}">COMPLETADA</a></li>
+                <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']}<a href="borrar/{$tarea['id_categoria']}">BORRAR</a> | <a href="completada/{$tarea['pintada']}">COMPLETADA</a></li>
               {/if}
             {/foreach}
       </ul>
@@ -18,18 +18,18 @@
       <h2>Formulario</h2>
       <form method="post" action="agregar">
         <div class="form-group">
-          <label for="tituloForm">Titulo</label>
+          <label for="tituloForm">Clase</label>
           <input type="text" class="form-control" id="tituloForm" name="tituloForm">
         </div>
         <div class="form-group">
-          <label for="descripcionForm">Descripcion</label>
+          <label for="descripcionForm">Rareza</label>
           <input type="text" class="form-control" id="descripcionForm" name="descripcionForm">
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="completadaForm" name="completadaForm">
-          <label class="form-check-label" for="completadaForm">Completada?</label>
+          <label class="form-check-label" for="completadaForm">Pintada?</label>
         </div>
-        <button type="submit" class="btn btn-primary">Crear Tarea</button>
+        <button type="submit" class="btn btn-primary">Itemizar</button>
       </form>
     </div>
 {include file="footer.tpl"}
