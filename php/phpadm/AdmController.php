@@ -20,6 +20,8 @@ class TareasController
       $this->view->Mostrar($this->Titulo, $Tareas);
   }
 
+
+  
   function InsertTarea(){
     $titulo = $_POST["tituloForm"];
     $descripcion = $_POST["descripcionForm"];
