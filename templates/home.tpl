@@ -1,6 +1,7 @@
 {include file="header.tpl"}
 {include file="ourhome.tpl"}
-    <h1>{$Titulo}</h1>
+    <h1 class="text-white">Listado de items</h1>
+    <br>
 <div class="col-lg-9">
     <div class="container">
       <ul class="list-group">
@@ -15,19 +16,19 @@
     </div>
 
     <div class="container">
-      <h2>Formulario</h2>
+      <h2 class="text-warning">ITEM</h2>
       <form method="post" action="agregar">
         <div class="form-group">
-          <label for="tituloForm">Clase</label>
+          <label class="text-success" for="tituloForm">Clase</label>
           <input type="text" class="form-control" id="tituloForm" name="tituloForm">
         </div>
         <div class="form-group">
-          <label for="descripcionForm">Rareza</label>
+          <label class="violet" for="descripcionForm">Rareza</label>
           <input type="text" class="form-control" id="descripcionForm" name="descripcionForm">
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="completadaForm" name="completadaForm">
-          <label class="form-check-label" for="completadaForm">Pintada?</label>
+          <label class="form-check-label text-danger" for="completadaForm">Pintada?</label>
         </div>
         <button type="submit" class="btn btn-primary">Itemizar</button>
       </form>

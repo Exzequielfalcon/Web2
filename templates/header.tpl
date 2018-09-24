@@ -11,3 +11,4 @@
     <title>{$Titulo}</title>
   </head>
   <body>
+    <img src="./images/header.jpg" alt="">
