@@ -15,14 +15,14 @@ function parseURL($url)
 }
 
 if(isset($_GET['action'])){
-   #$urlData[ACTION] = borrar
+   #$urlData[ACTION] = borrarTarea
    #$urlData[PARAMS] = [1,2,3,4]
 
     $urlData = parseURL($_GET['action']);
     $action = $urlData[ConfigApp::$ACTION]; //home
     if(array_key_exists($action,ConfigApp::$ACTIONS)){
         $params = $urlData[ConfigApp::$PARAMS];
-        $action = explode('#',ConfigApp::$ACTIONS[$action]); //Array[0] -> TareasController [1] -> BorrarTarea
+        $action = explode('#',ConfigApp::$ACTIONS[$action]); //Array[0] -> TareasController [1] -> BorrarSkin
         $controller =  new $action[0]();
         $metodo = $action[1];
         if(isset($params) &&  $params != null){

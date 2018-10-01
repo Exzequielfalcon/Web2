@@ -22,7 +22,7 @@ class TareasController
 
 
   
-  function InsertTarea(){
+  function InsertSkin(){
     $titulo = $_POST["tituloForm"];
     $descripcion = $_POST["descripcionForm"];
 
@@ -32,7 +32,7 @@ class TareasController
       $completada = 0;
     }
 
-    $this->model->InsertarTarea($titulo,$descripcion,$completada);
+    $this->model->InsertarSkin($titulo,$descripcion,$completada);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
