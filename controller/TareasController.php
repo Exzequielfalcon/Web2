@@ -20,7 +20,7 @@ class TareasController
       $this->view->Mostrar($this->Titulo, $Tareas);
   }
 
-  function InsertTarea(){
+  function InsertSkin(){
     $titulo = $_POST["tituloForm"];
     $descripcion = $_POST["descripcionForm"];
 
