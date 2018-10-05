@@ -31,7 +31,7 @@ class TareasModel
 
   function BorrarSkin($idTarea){
 
-    $sentencia = $this->db->prepare( "delete from categoria where id=?");
+    $sentencia = $this->db->prepare( "delete from categoria where id_categoria=?");
     $sentencia->execute(array($idTarea));
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 

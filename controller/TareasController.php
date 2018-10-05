@@ -20,7 +20,7 @@ class TareasController
       $this->view->Mostrar($this->Titulo, $Tareas);
   }
 
-  function InsertSkin(){
+  function InsertarSkin(){
     $titulo = $_POST["tituloForm"];
     $descripcion = $_POST["descripcionForm"];
 
@@ -36,12 +36,12 @@ class TareasController
   }
 
   function BorrarSkin($param){
-    $this->model->BorrarTarea($param[0]);
+    $this->model->BorrarSkin($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
   function CompletarSkin($param){
-    $this->model->CompletarTarea($param[0]);
+    $this->model->CompletarSkin($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
   }
