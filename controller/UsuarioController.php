@@ -1,6 +1,7 @@
 <?php
 require_once  "./view/UsuarioView.php";
 require_once  "./model/UsuarioModel.php";
+require_once "SecuredController.php";
 
 class UsuarioController extends SecuredController
 {
@@ -11,7 +12,7 @@ class UsuarioController extends SecuredController
   function __construct()
   {
     parent::__construct();
-    
+
     $this->view = new UsuarioView();
     $this->model = new UsuarioModel();
     $this->Titulo = "Lista de Usuario";
