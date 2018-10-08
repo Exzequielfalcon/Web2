@@ -2,19 +2,13 @@
 {include file="ourhome.tpl"}
 <div class="col-lg-12 container-fluid">
   <div class="row">
-    <div class="col-lg-5">
+    <div class="col-lg-6">
       <h1 class="text-white">Listado de items</h1>
       <br>
       <div class="container">
         <ul class="list-group">
           {foreach from=$Tareas item=tarea}
-          {if $tarea['pintada'] == 1}
           <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']} -- Pintado<a class="float-right" href="borrar/{$tarea['id_categoria']}">BORRAR</a></li>
-          {else}
-          <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']}<a class="float-right" href="borrar/{$tarea['id_categoria']}"> BORRAR</a>
-            <p class="float-right">|</p> <a class="float-right" href="completada/{$tarea['pintada']}"> COMPLETADA</a>
-          </li>
-          {/if}
           {/foreach}
         </ul>
       </div>
@@ -39,19 +33,13 @@
     </div>
 
 
-    <div class="col-lg-5">
+    <div class="col-lg-6">
       <h1 class="text-white">Listado de items</h1>
       <br>
       <div class="container">
         <ul class="list-group">
           {foreach from=$Tareas item=tarea}
-          {if $tarea['pintada'] == 1}
           <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']} -- Pintado<a class="float-right" href="borrar/{$tarea['id_categoria']}">BORRAR</a></li>
-          {else}
-          <li class="list-group-item">{$tarea['clase']} ----- {$tarea['rareza']}<a class="float-right" href="borrar/{$tarea['id_categoria']}"> BORRAR</a>
-            <p class="float-right">|</p> <a class="float-right" href="completada/{$tarea['pintada']}"> COMPLETADA</a>
-          </li>
-          {/if}
           {/foreach}
         </ul>
       </div>
