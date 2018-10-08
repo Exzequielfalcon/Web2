@@ -17,7 +17,7 @@ class TareasModel
     , 'root', '');
   }
 
-  function GetTareas(){
+  function GetSkin(){
       $sentencia = $this->db->prepare( "select * from categoria");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);

@@ -16,7 +16,7 @@ class TareasController
   }
 
   function Home(){
-      $Tareas = $this->model->GetTareas();
+      $Tareas = $this->model->GetSkin();
       $this->view->Mostrar($this->Titulo, $Tareas);
   }
 
