@@ -10,7 +10,9 @@ class ConfigApp
       'agregar'=> 'TareasController#InsertarSkin',
       'borrar'=> 'TareasController#BorrarSkin',
       'completada'=> 'TareasController#CompletarSkin',
-      'login' => 'LoginController'
+      'login' => 'LoginController#login',
+      'tareas'=> 'LoginController#verificarLogin',
+      'logout'=> 'LoginController#logout'
     ];
 
 }

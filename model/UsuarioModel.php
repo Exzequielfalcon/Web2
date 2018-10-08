@@ -13,7 +13,7 @@ class UsuarioModel
 
   function Connect(){
     return new PDO('mysql:host=localhost;'
-    .'dbname=tareas;charset=utf8'
+    .'dbname=skin_rocket;charset=utf8'
     , 'root', '');
   }
 
