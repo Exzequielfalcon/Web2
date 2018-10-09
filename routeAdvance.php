@@ -6,6 +6,7 @@ require_once "./controller/TareasController.php";
 require_once "./controller/UsuarioController.php";
 require_once "./controller/LoginController.php";
 require_once "./controller/SecuredController.php";
+require_once "./controller/RegisterController.php";
 
 function parseURL($url)
 {

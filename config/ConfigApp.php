@@ -13,7 +13,7 @@ class ConfigApp
       'login' => 'LoginController#login',
       'verificarLogin'=> 'LoginController#verificarLogin',
       'logout'=> 'LoginController#logout',
-      'singup' => 'UsuarioController#agregar'
+      'singup' => 'RegisterController#singup'
     ];
 
 }
