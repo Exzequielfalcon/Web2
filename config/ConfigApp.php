@@ -11,8 +11,9 @@ class ConfigApp
       'borrar'=> 'TareasController#BorrarSkin',
       'completada'=> 'TareasController#CompletarSkin',
       'login' => 'LoginController#login',
-      'tareas'=> 'LoginController#verificarLogin',
-      'logout'=> 'LoginController#logout'
+      'verificarLogin'=> 'LoginController#verificarLogin',
+      'logout'=> 'LoginController#logout',
+      'singup' => 'UsuarioController#agregar'
     ];
 
 }

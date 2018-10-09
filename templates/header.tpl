@@ -13,10 +13,10 @@
 </head>
 
 <body>
-  <img src="./images/header.jpg" alt="">
+  <img src="./images/header.jpg" class="img-fluid" alt="">
   <ul class="nav justify-content-end">
   <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
+    <a class="nav-link" href="singup">Sing Up</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="login">Login</a>
