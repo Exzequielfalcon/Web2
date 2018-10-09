@@ -25,8 +25,6 @@ class RegisterController
   function InsertUsuario(){
     $nombre = $_POST["nombre"];
     $pass = $_POST["pass"];
-
-
     $this->model->InsertarUsuario($nombre,$pass);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
@@ -42,7 +40,7 @@ class RegisterController
             //Encripto la contraseña con bcrypt
             $hash = password_hash($pass,PASSWORD_DEFAULT);
             //le pido al modelo que me agregu al usuario
-            $this->UsuarioModel->insert($usuario,$pass);
+            $this->model->InsertarUsuario($usuario,$pass);
             header("Location:".HOME);
         }
       }
