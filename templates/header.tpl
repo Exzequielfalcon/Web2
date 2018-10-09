@@ -14,3 +14,11 @@
 
 <body>
   <img src="./images/header.jpg" alt="">
+  <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="login">Login</a>
+  </li>
+</ul>

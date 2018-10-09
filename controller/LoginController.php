@@ -30,8 +30,8 @@ class LoginController
   }
 
   function verificarLogin(){
-      $user = $_POST["id_usuario"];
-      $pass = $_POST["pass"];
+      $user = $_POST["usuarioId"];
+      $pass = $_POST["passwordId"];
       $dbUser = $this->model->getUser($user);
 
       if(isset($dbUser)){
@@ -50,6 +50,7 @@ class LoginController
       }
 
   }
+
 
 }
 
