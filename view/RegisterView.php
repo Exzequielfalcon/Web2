@@ -9,8 +9,8 @@ class RegisterView
   }
 
 
-  function mostrarRegister(){
-
+  function mostrarRegister($message = ''){
+    $this->Smarty->assign('Message',$message); // El 'Titulo' del assign puede ser cualquier valor
     $this->Smarty->assign('Titulo',"Sing Up"); // El 'Titulo' del assign puede ser cualquier valor
     $this->Smarty->display('templates/singup.tpl');
   }
