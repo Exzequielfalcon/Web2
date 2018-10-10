@@ -39,7 +39,7 @@ class LoginController
               //mostrar lista de tareas
               session_start();
               $_SESSION["User"] = $user;
-              header(HOME);
+              header("Location:".HOME);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
 

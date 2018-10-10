@@ -16,8 +16,9 @@ class TareasController
   }
 
   function Home(){
-      $Tareas = $this->model->GetSkin();
-      $this->view->Mostrar($this->Titulo, $Tareas);
+      $Categoria = $this->model->getCategoria();
+      $Producto = $this->model->getProducto();
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto);
   }
 
   function InsertarSkin(){

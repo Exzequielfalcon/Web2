@@ -7,7 +7,7 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'TareasController#Home',
       'home'=> 'TareasController#Home',
-      'agregar'=> 'TareasController#InsertarSkin',
+      'add'=> 'TareasController#InsertarSkin',
       'borrar'=> 'TareasController#BorrarSkin',
       'completada'=> 'TareasController#CompletarSkin',
       'login' => 'LoginController#login',

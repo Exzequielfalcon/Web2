@@ -17,10 +17,16 @@ class TareasModel
     , 'root', '');
   }
 
-  function GetSkin(){
+  function getCategoria(){
       $sentencia = $this->db->prepare( "select * from categoria");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function getProducto(){
+    $sentencia = $this->db->prepare( "select * from producto");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function InsertarSkin($titulo,$descripcion,$completada){

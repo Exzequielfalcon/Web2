@@ -14,6 +14,15 @@
 
 <body>
   <img src="./images/header.jpg" class="img-fluid" alt="">
+  {if (($_SESSION["User"]!=null))}
+   <a href="logout" title="Cerrar sesión">Logout</a>
+   <p>{$_SESSION["User"]}</p>
+   <p>lorem</p>
+
+  {else}
+  <p>{$_SESSION["User"]}</p>
+  <p>else</p>
+  {/if}
   <ul class="nav justify-content-end">
   <li class="nav-item">
     <a class="nav-link" href="singup">Sing Up</a>
