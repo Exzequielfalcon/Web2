@@ -14,6 +14,7 @@
 
 <body>
   <img src="./images/header.jpg" class="img-fluid" alt="">
+<<<<<<< HEAD
   {if (($_SESSION["User"]!=null))}
    <a href="logout" title="Cerrar sesión">Logout</a>
    <p>{$_SESSION["User"]}</p>
@@ -23,6 +24,8 @@
   <p>{$_SESSION["User"]}</p>
   <p>else</p>
   {/if}
+=======
+>>>>>>> parent of 32b432d... Nombres Genericos, todo sirve!
   <ul class="nav justify-content-end">
   <li class="nav-item">
     <a class="nav-link" href="singup">Sing Up</a>
