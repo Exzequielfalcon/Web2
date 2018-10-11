@@ -14,19 +14,12 @@
 
 <body>
   <img src="./images/header.jpg" class="img-fluid" alt="">
-   <a href="logout" title="Cerrar sesión">Logout</a>
-
-   <p>{$_SESSION["User"]}</p>
-   <p>lorem</p>
-
-
-  <p>{$_SESSION["User"]}</p>
-  {$smarty.session.id}
-  <p>else</p>
-
   <ul class="nav justify-content-end">
   <li class="nav-item">
     <a class="nav-link" href="singup">Sing Up</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="logout">Logout</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="login">Login</a>

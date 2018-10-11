@@ -40,6 +40,7 @@ class LoginController
               session_start();
               $_SESSION["User"] = $user;
               header("Location:".HOME);
+              
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
 
