@@ -7,7 +7,6 @@
         <table class="table table-hover table-dark">
   <thead>
     <tr>
-      <th scope="col">Compra</th>
       <th scope="col">Venta</th>
       <th scope="col">Año</th>
 
@@ -16,11 +15,8 @@
   <tbody>
     {foreach from=$Producto item=skin}
     <tr>
-
-      <th scope="row">{$skin['id_producto']}</th>
-      <td>{$skin['precio_compra']}</td>
-      <td>{$skin['precio_venta']}</td>
-      <td>{$skin['año_lanzamiento']}</td>
+      <td>{$skin['precio']}</td>
+      <td>{$skin['anio_lanzamiento']}</td>
     </tr>
     {/foreach}
   </tbody>

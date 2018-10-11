@@ -44,6 +44,11 @@ class ProductoModel
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
   }
+  function GetTabla(){
+  $sentencia =$this->db->prepare ("SELECT c.nombre, c.rareza, c.pintada, c.clase, p.anio_lanzamiento, p.precio FROM producto p, categoria c WHERE c.id_categoria = p.id_producto");
+  $sentencia->execute();
+  return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
 }
 
 

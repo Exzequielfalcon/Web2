@@ -22,7 +22,8 @@ class SkinsController
   function Home(){
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
-      $this->view->Mostrar($this->Titulo, $Categoria, $Producto);
+      $Tabla = $this->ProductoModel->GetTabla();
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla);
   }
 
   function InsertarCategoria(){
