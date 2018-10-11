@@ -1,9 +1,6 @@
-<div class="col-lg-12 container-fluid">
+<!DOCTYPE html>
   <div class="row">
-    <div class="col-lg-6">
-      <h1 class="text-white">Parte de Productos</h1>
       <div class="container">
-        <h2 class="text-warning">ITEM</h2>
         <form method="post" action="add">
           <div class="form-group">
             <label class="text-success" for="tituloForm">Rareza</label>
@@ -21,5 +18,3 @@
         </form>
       </div>
     </div>
-  </div>
-</div>

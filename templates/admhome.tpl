@@ -4,5 +4,4 @@
 {include file="Productos.tpl"}
 {include file="Categorias.tpl"}
 {include file="ProductosAdm.tpl"}
-{include file="CategoriaAdm.tpl"}
 {include file="footer.tpl"}

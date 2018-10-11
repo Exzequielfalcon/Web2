@@ -7,7 +7,7 @@
         <table class="table table-hover table-dark">
   <thead>
     <tr>
-      <th scope="col">Nombre</th>
+      <th scope="col">Nombre </th>
       <th scope="col">Rareza</th>
       <th scope="col">Pintada</th>
       <th scope="col">Clase</th>
@@ -25,7 +25,8 @@
       <td>{$fila['clase']}</td>
       <td>{$fila['anio_lanzamiento']}</td>
       <td>{$fila['precio']}</td>
-
+      <td><a class="float-right" href="borrar/{$Tabla['id_categoria']}">Borrar</a></td>
+      <td><a class="float-right" href="borrar/{$Tabla['id_categoria']}">Modificar</a></td>
     </tr>
     {/foreach}
   </tbody>
