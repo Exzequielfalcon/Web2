@@ -3,7 +3,7 @@ require('libs/Smarty.class.php');
 /**
  *
  */
-class TareasView
+class SkinView
 {
 
   function Mostrar($Titulo, $Categoria, $Producto){
@@ -13,7 +13,7 @@ class TareasView
     $smarty->assign('Producto',$Producto);
 
     //$smarty->debugging = true;
-    $smarty->display('templates/homev.tpl');
+    $smarty->display('templates/home.tpl');
   }
 }
 

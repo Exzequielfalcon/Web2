@@ -2,7 +2,7 @@
 /**
  *
  */
-class TareasModel
+class ProductoModel
 {
   private $db;
 
@@ -17,25 +17,19 @@ class TareasModel
     , 'root', '');
   }
 
-  function getCategoria(){
-      $sentencia = $this->db->prepare( "select * from categoria");
-      $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-  }
-
   function getProducto(){
     $sentencia = $this->db->prepare( "select * from producto");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function InsertarSkin($titulo,$descripcion,$completada){
+  function InsertarProducto($titulo,$descripcion,$completada){
 
-    $sentencia = $this->db->prepare("INSERT INTO categoria(clase, rareza, pintada) VALUES(?,?,?)");
+    $sentencia = $this->db->prepare("INSERT INTO producto(clase, rareza, pintada) VALUES(?,?,?)");
     $sentencia->execute(array($titulo,$descripcion,$completada));
   }
 
-  function BorrarSkin($idTarea){
+  function BorrarProducto($idTarea){
 
     $sentencia = $this->db->prepare( "delete from categoria where id_categoria=?");
     $sentencia->execute(array($idTarea));
@@ -43,7 +37,7 @@ class TareasModel
 
   }
 
-  function CompletarSkin($id_tarea){
+  function CompletarProducto($id_tarea){
 
     $sentencia = $this->db->prepare( "update categoria set completada=1 where id=?");
     $sentencia->execute(array($id_tarea));

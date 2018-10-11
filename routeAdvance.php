@@ -2,7 +2,7 @@
 
 
 require_once "./config/ConfigApp.php";
-require_once "./controller/TareasController.php";
+require_once "./controller/SkinsController.php";
 require_once "./controller/UsuarioController.php";
 require_once "./controller/LoginController.php";
 require_once "./controller/SecuredController.php";
@@ -36,7 +36,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new TareasController();
+      $controller =  new SkinsController();
       echo $controller->Home();
     }
 }

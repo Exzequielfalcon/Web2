@@ -9,16 +9,16 @@ class ConfigApp
     public static $ACTION = 'action';
     public static $PARAMS = 'params';
     public static $ACTIONS = [
-      ''=> 'TareasController#Home',
-      'home'=> 'TareasController#Home',
-      'add'=> 'TareasController#InsertarSkin',
-      'borrar'=> 'TareasController#BorrarSkin',
-      'completada'=> 'TareasController#CompletarSkin',
+      ''=> 'SkinsController#Home',
+      'home'=> 'SkinsController#Home',
+      'add'=> 'SkinsController#InsertarCategoria',
+      'borrar'=> 'SkinsController#BorrarProducto',
+      'completada'=> 'SkinsController#CompletarProducto',
       'login' => 'LoginController#login',
       'verificarLogin'=> 'LoginController#verificarLogin',
       'logout'=> 'LoginController#logout',
       'singup' => 'RegisterController#singup',
-      'agregar' => 'RegisterController#agregar'
+      'agregar' => 'SkinsController#InsertarProducto'
     ];
 
 }
