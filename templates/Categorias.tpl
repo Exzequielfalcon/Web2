@@ -7,9 +7,6 @@
         <table class="table table-hover table-dark">
   <thead>
     <tr>
-      <th scope="col">Nombre</th>
-      <th scope="col">Rareza</th>
-      <th scope="col">Pintada</th>
       <th scope="col">Clase</th>
 
     </tr>
@@ -18,17 +15,7 @@
     {foreach from=$Categoria item=cate}
     <tr>
 
-      <th scope="row">{$cate['nombre']}</th>
-      <td>{$cate['rareza']}</td>
-
-      {if $cate['pintada']==0}
-      <td>No</td>
-    {/if}
-    {if $cate['pintada']==1}
-    <td>Si</td>
-    {/if}
-      <td>{$cate['clase']}</td>
-    {/foreach}
+      <th scope="row">{$cate['clase']}</th>
   </tbody>
 </table>
       </div>

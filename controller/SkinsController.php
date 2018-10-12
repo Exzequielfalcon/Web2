@@ -32,7 +32,7 @@ class SkinsController
     $rareza = $_POST["rareza"];
     $clase = $_POST["clase"];
     $nombre = $_POST["nombre"];
-    $año_lanzamiento = $_POST["año_lanzamiento"];
+    $año_lanzamiento = $_POST["anio_lanzamiento"];
     $precio = $_POST["precio"];
     if(isset($_POST["pintada"])){
       $pintada = 1;

@@ -4,7 +4,7 @@ require_once  "./view/RegisterView.php";
 require_once  "./model/UsuarioModel.php";
 require_once "SecuredController.php";
 
-class RegisterController
+class RegisterController extends SecuredController
 {
   private $view;
   private $model;

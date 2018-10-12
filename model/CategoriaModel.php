@@ -24,10 +24,10 @@ class CategoriaModel
   }
 
 
-function InsertarCategoria($clase,$rareza,$pintada){
+function InsertarCategoria($clase){
 
-  $sentencia = $this->db->prepare("INSERT INTO categoria(clase, rareza, pintada) VALUES(?,?,?)");
-  $sentencia->execute(array($clase,$rareza,$pintada));
+  $sentencia = $this->db->prepare("INSERT INTO categoria(clase) VALUES(?)");
+  $sentencia->execute(array($clase));
 }
 
 function BorrarCategoria($param){

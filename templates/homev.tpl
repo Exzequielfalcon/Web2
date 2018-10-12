@@ -1,5 +1,3 @@
-{include file="header.tpl"}
-{include file="ourhome.tpl"}
 <div class="col-lg-12 container-fluid">
   <div class="row">
     <div class="col-lg-6">
@@ -36,7 +34,7 @@
       {foreach from=$Producto item=pro}
       <td>{$pro['nombre']}</td>
       <td>{$pro['precio']}</td>
-      <td>{$pro['año_lanzamiento']}</td>
+      <td>{$pro['anio_lanzamiento']}</td>
       {/foreach}
     </tr>
 

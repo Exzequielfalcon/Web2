@@ -7,7 +7,6 @@
         <table class="table table-hover table-dark">
   <thead>
     <tr>
-      <th scope="col">Venta</th>
       <th scope="col">Año</th>
 
     </tr>
