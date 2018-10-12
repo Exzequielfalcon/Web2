@@ -10,11 +10,11 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nombre</th>
+      <th scope="col">Clase</th>
       <th scope="col">Rareza</th>
       <th scope="col">Pintada</th>
-      <th scope="col">Compra</th>
-      <th scope="col">Venta</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
       <th scope="col">Año</th>
 
     </tr>
@@ -32,8 +32,15 @@
       {if $cate['pintada']==1}
       <td>Si</td>
       {/if}
+      {/foreach}
+      {foreach from=$Producto item=pro}
+      <td>{$pro['nombre']}</td>
+      <td>{$pro['precio']}</td>
+      <td>{$pro['año_lanzamiento']}</td>
+      {/foreach}
     </tr>
-    {/foreach}
+
+
   </tbody>
 </table>
       </div>

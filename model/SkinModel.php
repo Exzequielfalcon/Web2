@@ -12,8 +12,8 @@ class SkinModel{
   }
 
   function InsertarSkin($nombre,$año_lanzamiento,$precio,$clase,$rareza,$pintada){
-    $this->c->InsertarCategoria($clase,$rareza,$pintada);
     $this->p->InsertarProducto($nombre,$año_lanzamiento,$precio);
+    $this->c->InsertarCategoria($clase,$rareza,$pintada);
   }
 }
 

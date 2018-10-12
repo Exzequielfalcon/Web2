@@ -1,7 +1,4 @@
-{include file="Productos.tpl"}
-<!DOCTYPE html>
-<html lang="en">
-<body>
+
   <div class="col-lg 12 container-fluid">
 
     <div class="row">
@@ -36,5 +33,3 @@
         </div>
     </div>
   </div>
-</body>
-</html>
