@@ -13,7 +13,7 @@ class SkinView
     $smarty->assign('Producto',$Producto);
     $smarty->assign('Tabla',$Tabla);
     //$smarty->debugging = true;
-    $smarty->display('templates/admhome.tpl');
+    $smarty->display('templates/home.tpl');
   }
 }
 

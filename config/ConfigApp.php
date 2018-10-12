@@ -11,14 +11,13 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'SkinsController#Home',
       'home'=> 'SkinsController#Home',
-      'add'=> 'SkinsController#InsertarCategoria',
+      'addSkin'=> 'SkinsController#InsertarSkin',
       'borrar'=> 'SkinsController#BorrarProducto',
-      'completada'=> 'SkinsController#CompletarProducto',
       'login' => 'LoginController#login',
       'verificarLogin'=> 'LoginController#verificarLogin',
       'logout'=> 'LoginController#logout',
       'singup' => 'RegisterController#singup',
-      'agregar' => 'SkinsController#InsertarProducto'
+      'agregar' => 'SkinsController#InsertarSkin'
     ];
 
 }
