@@ -11,9 +11,9 @@ class SkinModel{
     $this->p  = new ProductoModel();
   }
 
-  function InsertarSkin($nombre,$año_lanzamiento,$precio,$clase,$rareza,$pintada){
+  function InsertarProducto($nombre,$rareza,$precio,$año_lanzamiento,$pintada){
     $this->c->InsertarCategoria($clase);
-    $this->p->InsertarProducto($nombre,$rareza,$pintada,$año_lanzamiento,$precio);
+    $this->p->InsertarProducto($nombre,$rareza,$precio,$año_lanzamiento,$pintada);
   }
 }
 

@@ -11,7 +11,7 @@ class ConfigApp
     public static $ACTIONS = [
       ''=> 'SkinsController#Home',
       'home'=> 'SkinsController#Home',
-      'addSkin'=> 'SkinsController#InsertarSkin',
+      'addProducto'=> 'SkinsController#InsertarProducto',
       'borrar'=> 'SkinsController#BorrarProducto',
       'login' => 'LoginController#login',
       'verificarLogin'=> 'LoginController#verificarLogin',

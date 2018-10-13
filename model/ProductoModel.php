@@ -18,17 +18,18 @@ class ProductoModel
   }
 
   function getProducto(){
-    $sentencia = $this->db->prepare( "select * from producto");
+    $sentencia = $this->db->prepare("select * from producto");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function InsertarProducto($nombre,$año_lanzamiento,$precio){
-    $sentencia = $this->db->prepare("INSERT INTO producto(nombre,rareza,pintada,precio,año_lanzamiento) VALUES(?,?,?,?,?)");
-    $sentencia->execute(array($nombre,$rareza,$pintada,$precio,$año_lanzamiento,$precio));
+  function InsertarProducto($nombre,$rareza,$precio,$año_lanzamiento,$pintada){
+    $sentencia = $this->db->prepare("INSERT INTO producto(nombre,rareza,precio,anio_lanzamiento,pintada) VALUES(?,?,?,?,?)");
+    $sentencia->execute(array($nombre,$rareza,$precio,$año_lanzamiento,$pintada));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function BorrarProducto($idCategoria){
+  function BorrarProducto($idProducto){
 
     $sentencia = $this->db->prepare( "delete from producto where id_categoria=?");
     $sentencia->execute(array($idCategoria));
@@ -37,7 +38,7 @@ class ProductoModel
   }
 
   function GetTabla(){
-      $sentencia =$this->db->prepare ("SELECT p.nombre, p.rareza, p.pintada, c.clase, p.anio_lanzamiento, p.precio FROM producto p, categoria c WHERE c.id_categoria = c.id_categoria");
+      $sentencia =$this->db->prepare ("SELECT p.nombre, p.rareza, p.pintada, c.clase, p.anio_lanzamiento, p.precio FROM producto p, categoria c WHERE c.id_categoria = c.id_producto");
       $sentencia->execute();
       $temp = $sentencia->fetchAll(PDO::FETCH_ASSOC);
       return $temp;

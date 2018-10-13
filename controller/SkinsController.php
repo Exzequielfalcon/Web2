@@ -28,20 +28,26 @@ class SkinsController
       $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla);
   }
 
-  function InsertarSkin(){
-    $rareza = $_POST["rareza"];
-    $clase = $_POST["clase"];
+  function InsertarProducto(){
     $nombre = $_POST["nombre"];
-    $año_lanzamiento = $_POST["anio_lanzamiento"];
+    $rareza = $_POST["rareza"];
     $precio = $_POST["precio"];
+    $año_lanzamiento = $_POST["anio_lanzamiento"];
     if(isset($_POST["pintada"])){
       $pintada = 1;
     }else{
       $pintada = 0;
     }
-    $this->SkinModel->InsertarSkin($nombre,$año_lanzamiento,$precio,$clase,$rareza,$pintada);
+    $this->SkinModel->InsertarProducto($nombre,$rareza,$precio,$año_lanzamiento,$pintada);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
+  function InsertarCategoria(){
+    $clase = $_POST["clase"];
+
+    $this->SkinModel->InsertarCategoria($clase);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
 
   function BorrarProducto($param){
     $this->ProductoModel->BorrarProducto($param[0]);
@@ -54,4 +60,5 @@ class SkinsController
 
   }
 }
+
  ?>
