@@ -12,7 +12,6 @@
             <label class="text-success" for="tituloForm">Rareza</label>
             <input type="text" class="form-control" id="tituloForm" name="rareza">
           </div>
-
           <div class="form-group">
             <label class="text-success" for="tituloForm">Precio</label>
             <input type="text" class="form-control" id="tituloForm" name="precio">
@@ -20,10 +19,6 @@
           <div class="form-group">
             <label class="violet" for="descripcionForm">Año</label>
             <input type="text" class="form-control" id="descripcionForm" name="anio_lanzamiento">
-          </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1" name="pintada">Pintada?</label>
           </div>
           <button type="submit" class="btn btn-primary">Itemizar</button>
           </form>

@@ -40,5 +40,9 @@ function CompletarCategoria($param){
   header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
 }
+function InsertarCategoriaa(){
+  $this->SkinModel->InsertarCategoria($clase);
+  header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+}
 }
 ?>

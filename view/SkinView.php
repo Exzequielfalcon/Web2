@@ -12,6 +12,8 @@ class SkinView
     $smarty->assign('Categoria',$Categoria);
     $smarty->assign('Producto',$Producto);
     $smarty->assign('Tabla',$Tabla);
+    print_r($Producto);
+
     //$smarty->debugging = true;
     $smarty->display('templates/home.tpl');
   }

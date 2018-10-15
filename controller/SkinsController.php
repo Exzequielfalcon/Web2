@@ -2,7 +2,6 @@
 require_once  "./view/SkinView.php";
 require_once  "./model/ProductoModel.php";
 require_once  "./model/CategoriaModel.php";
-require_once  "./model/SkinModel.php";
 
 class SkinsController
 {
@@ -17,7 +16,6 @@ class SkinsController
     $this->view = new SkinView();
     $this->ProductoModel = new ProductoModel();
     $this->CategoriaModel = new CategoriaModel();
-    $this->SkinModel = new SkinModel();
     $this->Titulo = "Rocket League";
   }
 
@@ -29,23 +27,9 @@ class SkinsController
   }
 
   function InsertarProducto(){
-    $nombre = $_POST["nombre"];
-    $rareza = $_POST["rareza"];
-    $precio = $_POST["precio"];
-    $año_lanzamiento = $_POST["anio_lanzamiento"];
-    if(isset($_POST["pintada"])){
-      $pintada = 1;
-    }else{
-      $pintada = 0;
-    }
-    $this->SkinModel->InsertarProducto($nombre,$rareza,$precio,$año_lanzamiento,$pintada);
+    $this->ProductoModel->InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
-  function InsertarCategoria(){
-    $clase = $_POST["clase"];
 
-    $this->SkinModel->InsertarCategoria($clase);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
 
