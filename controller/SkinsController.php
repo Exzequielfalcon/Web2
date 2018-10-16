@@ -30,8 +30,14 @@ class SkinsController
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
       $precio = $_POST["precio"];
-      $año_lanzamiento = $_POST["anio_lanzamiento"];
-      $this->ProductoModel->InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento);
+      $año_lanzamiento = $_POST["anio_lanzamiento"]; 
+      if(isset($_POST["pintada"])){
+        $pintada = 1;
+      }else{
+        $pintada = 0;
+      }
+      $id_categoria = $_POST['id_categoria'];
+      $this->ProductoModel->InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria);
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 

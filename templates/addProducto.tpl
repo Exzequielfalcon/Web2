@@ -21,9 +21,16 @@
             <input type="text" class="form-control" id="descripcionForm" name="anio_lanzamiento">
           </div>
           <div class="form-group form-check">
-       <input type="checkbox" class="form-check-input" id="completadaForm" name="completadaForm">
-       <label class="form-check-label text-danger" for="completadaForm">Pintada?</label>
-     </div>
+             <input type="checkbox" class="form-check-input" id="completadaForm" name="pintada">
+             <label class="form-check-label text-danger" for="completadaForm">Pintada?</label>
+           </div>
+           <select name="id_categoria">
+                 {foreach from=$Categoria item=cate}
+
+                   <option value="{$cate['id_categoria']}">{$cate['clase']}</option>
+
+                   {/foreach}
+               </select>
           <button type="submit" class="btn btn-primary">Itemizar</button>
           </form>
         </div>

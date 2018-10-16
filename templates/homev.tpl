@@ -18,20 +18,25 @@
     </tr>
   </thead>
   <tbody>
-    {foreach from=$Categoria item=cate}
-    <tr>
 
+    <tr>
+      <select name="id_categoria">
+            {foreach from=$Categoria item=cate}
+
+              <option value="{$cate['id_categoria']}">{$cate['clase']}</option>
+
+              {/foreach}
+          </select>
       <th scope="row">{$cate['id_categoria']}</th>
       <td>{$cate['clase']}</td>
-      <td>{$cate['rareza']}</td>
-      {if $cate['pintada']==0}
+      {foreach from=$Producto item=pro}
+      <td>{$pro['rareza']}</td>
+      {if $pro['pintada']==0}
       <td>No</td>
       {/if}
-      {if $cate['pintada']==1}
+      {if $pro['pintada']==1}
       <td>Si</td>
       {/if}
-      {/foreach}
-      {foreach from=$Producto item=pro}
       <td>{$pro['nombre']}</td>
       <td>{$pro['precio']}</td>
       <td>{$pro['anio_lanzamiento']}</td>
