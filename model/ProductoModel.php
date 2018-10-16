@@ -22,6 +22,13 @@ class ProductoModel
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  function getProductoId(){
+    $sentencia = $this->db->prepare("select * from producto");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   function InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria){
     $sentencia = $this->db->prepare("INSERT INTO producto(nombre, rareza, precio, anio_lanzamiento,pintada,id_categoria) VALUES(?,?,?,?,?,?)");
     $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria));

@@ -27,6 +27,17 @@
 
               {/foreach}
           </select>
+      <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Categoria
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {foreach from=$Categoria item=cate}
+        <a class="dropdown-item">{$cate['clase']}</a>
+        <a class="dropdown-item">{$cate['clase']}</a>
+          {/foreach}
+      </div>
+    </div>
       <th scope="row">{$cate['id_categoria']}</th>
       <td>{$cate['clase']}</td>
       {foreach from=$Producto item=pro}
