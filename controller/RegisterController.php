@@ -26,7 +26,6 @@ class RegisterController extends SecuredController
     $nombre = $_POST["nombre"];
     $pass = $_POST["pass"];
     $this->model->InsertarUsuario($nombre,$pass);
-
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 

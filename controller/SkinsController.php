@@ -23,14 +23,18 @@ class SkinsController
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
       $Tabla = $this->ProductoModel->GetTabla();
-      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla);
+      if(isset($_SESSION["User"])){
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User);
+    }else{
+      $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null);
+    }
   }
 
   function InsertarProducto(){
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
       $precio = $_POST["precio"];
-      $año_lanzamiento = $_POST["anio_lanzamiento"]; 
+      $año_lanzamiento = $_POST["anio_lanzamiento"];
       if(isset($_POST["pintada"])){
         $pintada = 1;
       }else{
