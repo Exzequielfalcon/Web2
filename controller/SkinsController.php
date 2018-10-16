@@ -23,11 +23,12 @@ class SkinsController
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
       $Tabla = $this->ProductoModel->GetTabla();
+      $Clase = $this->BuscarCategoria();
       if(isset($_SESSION["User"])){
-      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User);
-    }else{
-      $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null);
-    }
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User, $Clase);
+      }else{
+        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null, $Clase);
+      }
   }
 
   function InsertarProducto(){
@@ -46,8 +47,15 @@ class SkinsController
   }
 
   function BuscarCategoria(){
-    $categoria = $_POST['categoria'];
-    $this->ProductoModel->
+    if (isset($_POST['categoria'])){
+      $id = $_POST['categoria'];
+      $clase= $this->ProductoModel->getProductobyId($id);
+    } else{
+      $claseid = $this->CategoriaModel->getPrimerCategoria();
+      $clase= $this->ProductoModel->getProductobyId($claseid);
+    }
+
+    return $clase;
   }
 
   function InsertarCategoria(){

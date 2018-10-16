@@ -23,8 +23,8 @@ class ProductoModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function getProductoId(){
-    $sentencia = $this->db->prepare("select * from producto");
+  function getProductobyId($id){
+    $sentencia = $this->db->prepare("select * from producto where id_categoria=$id");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }

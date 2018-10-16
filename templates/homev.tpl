@@ -5,61 +5,54 @@
       <br>
       <div class="container">
         <table class="table table-hover table-dark">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Clase</th>
-      <th scope="col">Rareza</th>
-      <th scope="col">Pintada</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Precio</th>
-      <th scope="col">Año</th>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Clase</th>
+              <th scope="col">Rareza</th>
+              <th scope="col">Pintada</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Año</th>
 
-    </tr>
-  </thead>
-  <tbody>
+            </tr>
+          </thead>
+          <tbody>
 
-    <tr>
-      <select name="id_categoria">
-            {foreach from=$Categoria item=cate}
-
-              <option value="{$cate['id_categoria']}">{$cate['clase']}</option>
-
+            <tr>
+              <form method="post" action="buscarCategoria">
+                <div class="form-group">
+                   <label for="exampleFormControlSelect1">Selecciona la clase</label>
+                   <select class="form-control" id="exampleFormControlSelect1">
+                     {foreach from=$Categoria item=cate}
+                     <option class="dropdown-item" value="{$cate['id_categoria']}" name="categoria">{$cate['clase']}</a>
+                       {/foreach}
+                   </select>
+                 </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+              <th scope="row">{$cate['id_categoria']}</th>
+              <td>{$cate['clase']}</td>
+              {foreach from=$Clase item=pro}
+              if(isset($_POST["pintada"])){
+              <td>{$pro['rareza']}</td>
+              {if $pro['pintada']==0}
+              <td>No</td>
+              {/if}
+              {if $pro['pintada']==1}
+              <td>Si</td>
+              {/if}
+              <td>{$pro['nombre']}</td>
+              <td>{$pro['precio']}</td>
+              <td>{$pro['anio_lanzamiento']}</td>
               {/foreach}
-          </select>
-      <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Categoria
-      </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        {foreach from=$Categoria item=cate}
-        <a class="dropdown-item">{$cate['clase']}</a>
-        <a class="dropdown-item">{$cate['clase']}</a>
-          {/foreach}
+            </tr>
+
+
+          </tbody>
+        </table>
       </div>
     </div>
-      <th scope="row">{$cate['id_categoria']}</th>
-      <td>{$cate['clase']}</td>
-      {foreach from=$Producto item=pro}
-      if(isset($_POST["pintada"])){
-      <td>{$pro['rareza']}</td>
-      {if $pro['pintada']==0}
-      <td>No</td>
-      {/if}
-      {if $pro['pintada']==1}
-      <td>Si</td>
-      {/if}
-      <td>{$pro['nombre']}</td>
-      <td>{$pro['precio']}</td>
-      <td>{$pro['anio_lanzamiento']}</td>
-      {/foreach}
-    </tr>
 
 
-  </tbody>
-</table>
-      </div>
-</div>
-
-
-{include file="footer.tpl"}
+    {include file="footer.tpl"}

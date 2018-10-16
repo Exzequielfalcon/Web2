@@ -30,6 +30,12 @@ function InsertarCategoria($clase){
   $sentencia->execute(array($clase));
 }
 
+function getPrimerCategoria(){
+  $sentencia = $this->db->prepare("SELECT * FROM categoria LIMIT 1");
+  $sentencia->execute();
+  return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+}
+
 function BorrarCategoria($param){
   $this->CategoriaModel->BorrarCategoria($param[0]);
   header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
