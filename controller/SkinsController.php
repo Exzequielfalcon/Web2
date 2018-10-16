@@ -37,7 +37,12 @@ class SkinsController
 }
   }
 
+  function InsertarCategoria(){
+    $clase= $_POST["clase"];
+    $this->CategoriaModel->InsertarCategoria($clase);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
+}
   function BorrarProducto($param){
     $this->ProductoModel->BorrarProducto($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
