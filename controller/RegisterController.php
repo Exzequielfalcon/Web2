@@ -38,7 +38,7 @@ class RegisterController extends SecuredController
             $pass = $_POST['passwordId'];
             //Encripto la contraseña con bcrypt
             $hash = password_hash($pass,PASSWORD_DEFAULT);
-            //le pido al modelo que me agregu al usuario
+            //le pido al modelo que me agregue al usuario
             $this->model->InsertarUsuario($usuario,$hash);
             header("Location:".HOME);
       }

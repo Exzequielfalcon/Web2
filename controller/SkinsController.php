@@ -27,9 +27,14 @@ class SkinsController
   }
 
   function InsertarProducto(){
-    $this->ProductoModel->InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
+    if(isset($_POST['nombre']) && isset($_POST['rareza']) && isset($_POST['precio']) && isset($_POST['anio_lanzamiento'])){
+      $nombre = $_POST["nombre"];
+      $rareza = $_POST["rareza"];
+      $precio = $_POST["precio"];
+      $año_lanzamiento = $_POST["anio_lanzamiento"];
+      $this->ProductoModel->InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+}
   }
 
 

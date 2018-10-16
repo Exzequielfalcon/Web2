@@ -22,11 +22,7 @@ class ProductoModel
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-  function InsertarProducto(){
-    $nombre = $_POST["nombre"];
-    $rareza = $_POST["rareza"];
-    $precio = $_POST["precio"];
-    $año_lanzamiento = $_POST["anio_lanzamiento"];
+  function InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento){
     $sentencia = $this->db->prepare("INSERT INTO producto(nombre, rareza, precio, anio_lanzamiento) VALUES(?,?,?,?)");
     $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento));
 }
