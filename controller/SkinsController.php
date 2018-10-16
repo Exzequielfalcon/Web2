@@ -52,9 +52,9 @@ class SkinsController
       $clase= $this->ProductoModel->getProductobyId($id);
     } else{
       $claseid = $this->CategoriaModel->getPrimerCategoria();
-      $clase= $this->ProductoModel->getProductobyId($claseid);
+      $id = $claseid['id_categoria'];
+      $clase= $this->ProductoModel->getProductobyId($id);
     }
-
     return $clase;
   }
 

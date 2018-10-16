@@ -33,7 +33,7 @@ function InsertarCategoria($clase){
 function getPrimerCategoria(){
   $sentencia = $this->db->prepare("SELECT * FROM categoria LIMIT 1");
   $sentencia->execute();
-  return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  return $sentencia->fetch(PDO::FETCH_ASSOC);
 }
 
 function BorrarCategoria($param){
