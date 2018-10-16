@@ -20,6 +20,10 @@
             <label class="violet" for="descripcionForm">Año</label>
             <input type="text" class="form-control" id="descripcionForm" name="anio_lanzamiento">
           </div>
+          <div class="form-group form-check">
+       <input type="checkbox" class="form-check-input" id="completadaForm" name="completadaForm">
+       <label class="form-check-label text-danger" for="completadaForm">Pintada?</label>
+     </div>
           <button type="submit" class="btn btn-primary">Itemizar</button>
           </form>
         </div>
