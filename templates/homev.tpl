@@ -41,6 +41,7 @@
       <th scope="row">{$cate['id_categoria']}</th>
       <td>{$cate['clase']}</td>
       {foreach from=$Producto item=pro}
+      if(isset($_POST["pintada"])){
       <td>{$pro['rareza']}</td>
       {if $pro['pintada']==0}
       <td>No</td>

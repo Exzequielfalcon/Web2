@@ -23,7 +23,11 @@ class SkinsController
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
       $Tabla = $this->ProductoModel->GetTabla();
-      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla);
+      if(isset($_SESSION["User"])){
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User);
+    }else{
+      $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null);
+    }
   }
 
   function InsertarProducto(){

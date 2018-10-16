@@ -35,7 +35,7 @@ class UsuarioController extends SecuredController
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-    function agregar(){
+    function InsertUsuarios(){
       if(isset($_POST['usuarioId'])){
         $lenght = strlen($_POST['usuarioId']);
           if ($lenght >0){
