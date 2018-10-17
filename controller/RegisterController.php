@@ -12,7 +12,6 @@ class RegisterController extends SecuredController
 
   function __construct()
   {
-    parent::__construct();
     $this->view = new RegisterView();
     $this->model = new UsuarioModel();
     $this->Titulo = "Lista de Usuario";

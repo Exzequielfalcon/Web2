@@ -10,8 +10,6 @@ class SecuredController
         $this->logout(); // destruye la sesión, y vuelve al login
       }
         $_SESSION['LAST_ACTIVITY'] = time(); // actualiza el último instante de actividad
-    }else{
-        header(LOGIN);
     }
   }
 
