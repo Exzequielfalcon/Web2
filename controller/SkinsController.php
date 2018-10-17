@@ -35,6 +35,19 @@ class SkinsController extends SecuredController
       }
   }
 
+  function HomeCategoria($Clase){
+      $Categoria = $this->CategoriaModel->getCategoria();
+      $Producto = $this->ProductoModel->getProducto();
+      $Tabla = $this->ProductoModel->GetTabla();
+      $this->Clase = $Clase;
+      if(isset($_SESSION["User"])){
+        $User = $_SESSION["User"];
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User, $this->Clase);
+      }else{
+        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null, $this->Clase);
+      }
+  }
+
   function InsertarProducto(){
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
@@ -52,9 +65,10 @@ class SkinsController extends SecuredController
 
    function BuscarCategoria(){
       $id = $_POST['categoria'];
-      $this->Clase= $this->ProductoModel->getProductobyId($id);
+      $Clase= $this->ProductoModel->getProductobyId($id);
       echo print_r($this->Clase);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $this->HomeCategoria($Clase);
+      //header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homec');
   }
 
   function getCategoria(){
