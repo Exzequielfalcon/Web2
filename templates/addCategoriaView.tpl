@@ -17,8 +17,8 @@
 {foreach from=$Tabla item=fila}
 <tr>
   <td>{$fila['clase']}</td>
-   <td><a class="float-right" href="borrar/{$Tabla['id_categoria']}">Borrar</a></td> -->
-   <td><a class="float-right" href="borrar/{$Tabla['id_categoria']}">Modificar</a></td> -->
+   <td><a class="float-right" href="borrar/{$Tabla['id_categoria']}">Borrar</a></td>
+   <td><a class="float-right" href="borrar/{$Tabla['id_categoria']}">Modificar</a></td>
 </tr>
 {/foreach}
 </tbody>

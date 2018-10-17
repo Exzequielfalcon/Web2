@@ -35,9 +35,8 @@ class ProductoModel
 }
 
   function BorrarProducto($idProducto){
-
-    $sentencia = $this->db->prepare( "delete from producto where id_categoria=?");
-    $sentencia->execute(array($idCategoria));
+    $sentencia = $this->db->prepare( "DELETE from producto where id_producto=?");
+    $sentencia->execute(array($idProducto));
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
   }

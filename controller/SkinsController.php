@@ -66,7 +66,6 @@ class SkinsController extends SecuredController
    function BuscarCategoria(){
       $id = $_POST['categoria'];
       $Clase= $this->ProductoModel->getProductobyId($id);
-      echo print_r($this->Clase);
       $this->HomeCategoria($Clase);
       //header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homec');
   }

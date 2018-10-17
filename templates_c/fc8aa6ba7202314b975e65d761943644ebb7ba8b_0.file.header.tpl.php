@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-17 16:24:31
+/* Smarty version 3.1.33, created on 2018-10-17 18:45:53
   from 'C:\xampp\htdocs\Proyectos\Web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc7461f364e66_87217461',
+  'unifunc' => 'content_5bc7674146c9f3_85382531',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc8aa6ba7202314b975e65d761943644ebb7ba8b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\Web2\\templates\\header.tpl',
-      1 => 1539786269,
+      1 => 1539794099,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bc7461f364e66_87217461 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc7674146c9f3_85382531 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
 
@@ -54,8 +54,6 @@ function content_5bc7461f364e66_87217461 (Smarty_Internal_Template $_smarty_tpl)
     <a class="nav-link" href="singup">Sing Up</a>
   </li>
   <?php }?>
-
-
 
 </ul>
 <?php }
