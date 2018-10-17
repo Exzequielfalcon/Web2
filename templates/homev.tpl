@@ -21,7 +21,7 @@
               <form method="post" action="buscarCategoria">
                 <div class="form-group">
                    <label for="exampleFormControlSelect1">Selecciona la clase</label>
-                   <select class="form-control" id="exampleFormControlSelect1">
+                   <select class="form-control" id="exampleFormControlSelect1"  name="categoria">
                      {foreach from=$Categoria item=cate}
                      <option class="dropdown-item" value="{$cate['id_categoria']}" name="categoria">{$cate['clase']}</a>
                        {/foreach}
