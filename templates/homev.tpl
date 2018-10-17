@@ -27,7 +27,7 @@
                        {/foreach}
                    </select>
                  </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Buscar</button>
               </form>
               {foreach from=$Clase item=pro}
               <tr>
@@ -43,10 +43,8 @@
               <td>{$pro['precio']}</td>
               <td>{$pro['anio_lanzamiento']}</td>
               {if (isset($smarty.session.User))}
-                {if ($smarty.session.User)=='admin'}
                 <td><a class="float-right" href="borrar/{$pro['id_producto']}">Borrar</a></td>
                 <td><a class="float-right" href="borrar/{$pro['id_producto']}">Modificar</a></td>
-                  {/if}
               {/if}
               {/foreach}
             </tr>

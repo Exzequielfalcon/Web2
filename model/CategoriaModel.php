@@ -36,16 +36,14 @@ function getPrimerCategoria(){
   return $sentencia->fetch(PDO::FETCH_ASSOC);
 }
 
-function BorrarCategoria($param){
-  $this->CategoriaModel->BorrarCategoria($param[0]);
+function BorrarCategoria($idCategoria){
+  $sentencia = $this->db->prepare( "DELETE from producto where id_categoria=?");
+  $sentencia->execute(array($idCategoria));
+  $sentencia = $this->db->prepare( "DELETE from categoria where id_categoria=?");
+  $sentencia->execute(array($idCategoria));
   header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 }
 
-function CompletarCategoria($param){
-  $this->CategoriaModel->CompletarCategoria($param[0]);
-  header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
-}
 function InsertarCategoriaa(){
   $this->SkinModel->InsertarCategoria($clase);
   header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));

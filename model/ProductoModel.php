@@ -34,13 +34,6 @@ class ProductoModel
     $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria));
 }
 
-  function BorrarProducto($idProducto){
-    $sentencia = $this->db->prepare( "DELETE from producto where id_producto=?");
-    $sentencia->execute(array($idProducto));
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
-  }
-
   function GetTabla(){
       $sentencia =$this->db->prepare ("SELECT p.nombre, p.rareza,  p.precio, p.pintada, p.anio_lanzamiento, c.clase FROM producto p, categoria c WHERE c.id_categoria = c.id_categoria");
       $sentencia->execute();

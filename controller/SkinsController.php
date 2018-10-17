@@ -83,16 +83,15 @@ class SkinsController extends SecuredController
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
 
 }
+  function BorrarCategoria($param){
+    $this->CategoriaModel->BorrarCategoria($param[0]);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+}
   function BorrarProducto($param){
     $this->ProductoModel->BorrarProducto($param[0]);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function CompletarProducto($param){
-    $this->ProductoModel->CompletarProducto($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
-  }
 }
 
  ?>
