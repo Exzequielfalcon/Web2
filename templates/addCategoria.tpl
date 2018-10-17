@@ -1,7 +1,8 @@
-<div class="col-lg 4 container-fluid">
-    <div class="row">
+<div class="row">
+
+    <div class="col-lg-6">
+      <div class="container">
         <h1 class="text-white">Parte de Categoria</h1>
-        <div class="container">
           <h2 class="text-warning">ITEM</h2>
           <form method="post" action="addCategoria">
             <div class="form-group">
@@ -11,5 +12,4 @@
             <button type="submit" class="btn btn-primary">Subir Clase</button>
           </form>
         </div>
-    </div>
-  </div>
+      </div>

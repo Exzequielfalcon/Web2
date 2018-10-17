@@ -1,6 +1,6 @@
-<div class="col-lg-12 container-fluid">
+
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-12">
       <h1 class="text-white">Listado de items</h1>
       <br>
       <div class="container">
@@ -56,6 +56,4 @@
         </table>
       </div>
     </div>
-
-
-    {include file="footer.tpl"}
+    </div>
