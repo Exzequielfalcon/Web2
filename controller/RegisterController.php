@@ -12,7 +12,7 @@ class RegisterController extends SecuredController
 
   function __construct()
   {
-
+    parent::__construct();
     $this->view = new RegisterView();
     $this->model = new UsuarioModel();
     $this->Titulo = "Lista de Usuario";
@@ -23,9 +23,9 @@ class RegisterController extends SecuredController
   }
 
   function InsertUsuario(){
-    $nombre = $_POST["nombre"];
+    $usuario = $_POST["usuario"];
     $pass = $_POST["pass"];
-    $this->model->InsertarUsuario($nombre,$pass);
+    $this->model->InsertarUsuario($usuario,$pass);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 

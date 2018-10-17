@@ -2,8 +2,9 @@
 require_once  "./view/SkinView.php";
 require_once  "./model/ProductoModel.php";
 require_once  "./model/CategoriaModel.php";
+require_once  "SecuredController.php";
 
-class SkinsController
+class SkinsController extends SecuredController
 {
   private $view;
   private $ProductoModel;
@@ -13,6 +14,7 @@ class SkinsController
 
   function __construct()
   {
+    parent::__construct();
     $this->view = new SkinView();
     $this->ProductoModel = new ProductoModel();
     $this->CategoriaModel = new CategoriaModel();
@@ -25,6 +27,7 @@ class SkinsController
       $Tabla = $this->ProductoModel->GetTabla();
       $Clase = $this->BuscarCategoria();
       if(isset($_SESSION["User"])){
+        $User = $_SESSION["User"];
       $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User, $Clase);
       }else{
         $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null, $Clase);

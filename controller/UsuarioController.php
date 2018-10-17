@@ -1,5 +1,5 @@
 <?php
-require_once  "./view/UsuarioView.php";
+require_once  "./view/SkinView.php";
 require_once  "./model/UsuarioModel.php";
 require_once "SecuredController.php";
 
@@ -13,7 +13,7 @@ class UsuarioController extends SecuredController
   {
     parent::__construct();
 
-    $this->view = new UsuarioView();
+    $this->view = new SkinView();
     $this->model = new UsuarioModel();
     $this->Titulo = "Lista de Usuario";
   }
@@ -26,11 +26,11 @@ class UsuarioController extends SecuredController
 
 
   function InsertUsuario(){
-    $nombre = $_POST["nombre"];
+    $usuario = $_POST["usuario"];
     $pass = $_POST["pass"];
 
 
-    $this->model->InsertarUsuario($nombre,$pass);
+    $this->model->InsertarUsuario($usuario,$pass);
 
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }

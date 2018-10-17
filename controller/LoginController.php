@@ -44,20 +44,17 @@ class LoginController extends SecuredController
     }
   }
   function verificarLogin(){
-      $user = $_POST["usuarioId"];
+      $User = $_POST["usuarioId"];
       $pass = $_POST["passwordId"];
-      $dbUser = $this->model->getUser($user);
-
-      if(isset($dbUser)){
-          if (password_verify($pass, $dbUser[0]["pass"])){
+      $db_User = $this->model->getUser($User);
+      if(isset($db_User)){
+          if (password_verify($pass, $db_User[0]["pass"])){
               //mostrar lista de tareas
               session_start();
               $_SESSION["User"] = $User;
               header("Location:".HOME);
-
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
-
           }
       }else{
         //No existe el usario

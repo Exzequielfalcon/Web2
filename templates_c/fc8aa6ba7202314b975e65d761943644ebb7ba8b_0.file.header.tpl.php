@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-10-16 21:52:45
+/* Smarty version 3.1.33, created on 2018-10-17 16:24:31
   from 'C:\xampp\htdocs\Proyectos\Web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bc6418d19e3d9_69513620',
+  'unifunc' => 'content_5bc7461f364e66_87217461',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc8aa6ba7202314b975e65d761943644ebb7ba8b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\Web2\\templates\\header.tpl',
-      1 => 1539719562,
+      1 => 1539786269,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bc6418d19e3d9_69513620 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bc7461f364e66_87217461 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
 
@@ -42,16 +42,16 @@ function content_5bc6418d19e3d9_69513620 (Smarty_Internal_Template $_smarty_tpl)
     <li class="nav-item">
       <a class="nav-link" href="home">Home</a>
     </li>
-  <?php if (((array('User' !== null) !== null ))) {?>
+    <?php if ((isset($_SESSION['User']))) {?>
+  <li class="nav-item">
+    <a class="nav-link" href="logout">Logout</a>
+  </li>
+  <?php } else { ?>
   <li class="nav-item">
     <a class="nav-link" href="login">Login</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" href="singup">Sing Up</a>
-  </li>
-  <?php } else { ?>
-  <li class="nav-item">
-    <a class="nav-link" href="logout">Logout</a>
   </li>
   <?php }?>
 
