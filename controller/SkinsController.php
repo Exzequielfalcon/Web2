@@ -19,13 +19,13 @@ class SkinsController extends SecuredController
     $this->ProductoModel = new ProductoModel();
     $this->CategoriaModel = new CategoriaModel();
     $this->Titulo = "Rocket League";
+    $this->Clase = $this->getCategoria();
   }
 
   function Home(){
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
       $Tabla = $this->ProductoModel->GetTabla();
-      $Clase = $this->BuscarCategoria();
       if(isset($_SESSION["User"])){
         $User = $_SESSION["User"];
       $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User, $Clase);
@@ -49,15 +49,17 @@ class SkinsController extends SecuredController
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function BuscarCategoria(){
-    if (isset($_POST['categoria'])){
+   function BuscarCategoria(){
       $id = $_POST['categoria'];
-      $clase= $this->ProductoModel->getProductobyId($id);
-    } else{
-      $claseid = $this->CategoriaModel->getPrimerCategoria();
-      $id = $claseid['id_categoria'];
-      $clase= $this->ProductoModel->getProductobyId($id);
-    }
+      $this->Clase= $this->ProductoModel->getProductobyId($id);
+      echo print_r($this->Clase);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
+  function getCategoria(){
+    $claseid = $this->CategoriaModel->getPrimerCategoria();
+    $id = $claseid['id_categoria'];
+    $clase= $this->ProductoModel->getProductobyId($id);
     return $clase;
   }
 
