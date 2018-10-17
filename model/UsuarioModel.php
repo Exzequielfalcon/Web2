@@ -29,9 +29,9 @@ class UsuarioModel
     $sentencia->execute(array($usuario, $pass));
   }
 
-  function GetUser($user){
+  function GetUser($User){
       $sentencia = $this->db->prepare( "select * from usuario where usuario=? limit 1");
-      $sentencia->execute(array($user));
+      $sentencia->execute(array($User));
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 

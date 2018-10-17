@@ -4,11 +4,11 @@
     <form method="post" action="agregar">
       <div class="form-group">
         <label for="exampleInputEmail1">Usuario</label>
-        <input type="input" class="form-control" name="usuarioId" id="usuarioId"  placeholder="Enter email">
+        <input type="input" class="form-control" name="usuario" id="usuarioId"  placeholder="Enter email">
         </div>
       <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" name="passwordId" id="passwordId" placeholder="Password">
+        <input type="password" class="form-control" name="pass" id="passwordId" placeholder="Password">
       </div>
       <div class="">
 
