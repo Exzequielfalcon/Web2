@@ -26,11 +26,12 @@ class SkinsController extends SecuredController
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
       $Tabla = $this->ProductoModel->GetTabla();
+      $this->Clase = $this->getCategoria();
       if(isset($_SESSION["User"])){
         $User = $_SESSION["User"];
-      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User, $Clase);
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User, $this->Clase);
       }else{
-        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null, $Clase);
+        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null, $this->Clase);
       }
   }
 
