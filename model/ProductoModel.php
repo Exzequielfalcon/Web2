@@ -29,6 +29,12 @@ class ProductoModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function BorrarProducto($idProducto){
+    $sentencia = $this->db->prepare( "DELETE from producto where id_producto=?");
+    $sentencia->execute(array($idProducto));
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
+
   function getProductobyId2($id){
     $sentencia = $this->db->prepare("select * from producto where id_producto=$id");
     $sentencia->execute();
