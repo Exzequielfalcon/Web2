@@ -16,14 +16,18 @@
 <body>
   <img src="./images/header.jpg" class="img-fluid" alt="">
   <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="nav-link" href="home">Home</a>
-    </li>
+
     {if (isset($smarty.session.User))}
+    <li class="nav-item">
+      <a class="nav-link" href="homeadmin">Home</a>
+    </li>
   <li class="nav-item">
     <a class="nav-link" href="logout">Logout</a>
   </li>
   {else}
+  <li class="nav-item">
+    <a class="nav-link" href="home">Home</a>
+  </li>
   <li class="nav-item">
     <a class="nav-link" href="login">Login</a>
   </li>

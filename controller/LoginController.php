@@ -4,7 +4,7 @@ require_once  "./view/LoginView.php";
 require_once  "./model/UsuarioModel.php";
 require_once  "./controller/SecuredController.php";
 
-class LoginController extends SecuredController
+class LoginController
 {
   private $view;
   private $model;
@@ -52,7 +52,7 @@ class LoginController extends SecuredController
               //mostrar lista de tareas
               session_start();
               $_SESSION["User"] = $User;
-              header("Location:".HOME);
+              header("Location:".homeadmin);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");
           }
