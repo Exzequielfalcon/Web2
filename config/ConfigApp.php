@@ -17,6 +17,7 @@ class ConfigApp
       'borrar'=> 'SkinsController#BorrarProducto',
       'borrarCategoria' => 'SkinsController#BorrarCategoria',
       'modificarProducto' => 'SkinsController#HomeModificarProducto',
+      'updateProducto'=> 'SkinsController#ModificarProducto',
       'login' => 'LoginController#login',
       'verificarLogin'=> 'LoginController#verificarLogin',
       'logout'=> 'LoginController#logout',

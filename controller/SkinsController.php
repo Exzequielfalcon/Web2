@@ -69,6 +69,22 @@ class SkinsController extends SecuredController
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
+  function ModificarProducto(){
+      $nombre = $_POST["nombre"];
+      $rareza = $_POST["rareza"];
+      $precio = $_POST["precio"];
+      $año_lanzamiento = $_POST["anio_lanzamiento"];
+      if(isset($_POST["pintada"])){
+        $pintada = 1;
+      }else{
+        $pintada = 0;
+      }
+      $id_categoria = $_POST['id_categoria'];
+      $id_producto = $_POST['id_producto'];
+      $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
+  }
+
    function BuscarCategoria(){
       $id = $_POST['categoria'];
       $Clase= $this->ProductoModel->getProductobyId($id);
@@ -95,12 +111,6 @@ class SkinsController extends SecuredController
 }
   function BorrarProducto($param){
     $this->ProductoModel->BorrarProducto($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
-
-  function ModificarProducto($idProducto){
-    $prod=$this->model->getProductobyId($idProducto);
-    $this->ProductoModel->ModificarProducto($prod);
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 }
