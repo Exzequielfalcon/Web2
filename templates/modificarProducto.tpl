@@ -1,12 +1,14 @@
+{include file="header.tpl"}
 <div class="row">
 <div class="col-lg-12">
     <div class="container-fluid">
-      <h1 class="text-white">Parte de Producto</h1>
+      <h1 class="text-white">Modificar Producto</h1>
       <h2 class="text-warning">ITEM</h2>
       <form method="post" action="addProducto">
         <div class="form-group">
-          <label class="violet" for="descripcionForm">Nombre</label>
-          <input type="text" class="form-control" id="descripcionForm" name="nombre">
+          <p>print</p>
+          <label class="violet" for="descripcionForm" >Nombre {$Producto['nombre']}</label>
+          <input type="text" class="form-control" id="descripcionForm" name="nombre" placeholder="{$Producto['nombre']}">
         </div>
         <div class="form-group">
           <label class="text-success" for="tituloForm">Rareza</label>
@@ -31,8 +33,9 @@
 
           {/foreach}
         </select>
-        <button type="submit" class="btn btn-primary">Itemizar</button>
+        <button type="submit" class="btn btn-primary">Modificar</button>
       </form>
     </div>
   </div>
 </div>
+{include file="footer.tpl"}

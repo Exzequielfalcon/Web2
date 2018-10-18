@@ -48,6 +48,12 @@ class SkinsController extends SecuredController
       }
   }
 
+  function HomeModificarProducto($param){
+    $Categoria = $this->CategoriaModel->getCategoria();
+    $Producto = $this->ProductoModel->getProductobyId($param[0]);
+    $this->view->MostrarModificarProducto("Modificar producto", $Producto, $Categoria);
+  }
+
   function InsertarProducto(){
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
@@ -92,6 +98,11 @@ class SkinsController extends SecuredController
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
+  function ModificarProducto($idProducto){
+    $prod=$this->model->getProductobyId($idProducto);
+    $this->ProductoModel->ModificarProducto($prod);
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+  }
 }
 
  ?>

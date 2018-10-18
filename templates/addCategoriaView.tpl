@@ -1,6 +1,7 @@
 <div class="col-lg-5">
 <div class="container-fluid">
   <h1 class="text-white">Categorias</h1>
+  <p class="text-white">Eliminar una categoria, eliminara todos los productos de tal</p>
     <table class="table table-hover table-dark">
       <thead>
         <tr>
