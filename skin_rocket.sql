@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-09-2018 a las 02:01:43
+-- Tiempo de generación: 18-10-2018 a las 03:36:47
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -30,8 +30,6 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `categoria` (
   `id_categoria` int(11) NOT NULL,
-  `rareza` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `pintada` int(1) NOT NULL,
   `clase` varchar(50) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -39,10 +37,8 @@ CREATE TABLE `categoria` (
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `rareza`, `pintada`, `clase`) VALUES
-(1, 'Raro', 0, 'Vehiculo'),
-(2, 'Muy raro', 0, 'Ruedas'),
-(3, 'Black Market', 1, 'Decal');
+INSERT INTO `categoria` (`id_categoria`, `clase`) VALUES
+(5, 'Carroceria');
 
 -- --------------------------------------------------------
 
@@ -52,11 +48,43 @@ INSERT INTO `categoria` (`id_categoria`, `rareza`, `pintada`, `clase`) VALUES
 
 CREATE TABLE `producto` (
   `id_producto` int(11) NOT NULL,
-  `precio_compra` int(11) NOT NULL,
-  `precio_venta` int(11) NOT NULL,
-  `año_lanzamiento` int(11) NOT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `rareza` varchar(100) NOT NULL,
+  `precio` int(11) NOT NULL,
+  `anio_lanzamiento` int(11) NOT NULL,
+  `pintada` int(5) NOT NULL,
   `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`id_producto`, `nombre`, `rareza`, `precio`, `anio_lanzamiento`, `pintada`, `id_categoria`) VALUES
+(3, 'Breakout-Type-S', 'Importada', 150, 2017, 0, 5),
+(8, 'Breakout-Type-S', 'Importada', 150, 2018, 0, 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id_usuario` int(11) NOT NULL,
+  `usuario` varchar(244) NOT NULL,
+  `pass` varchar(244) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id_usuario`, `usuario`, `pass`) VALUES
+(1, 'admin', '$2y$10$DR.Bh05VExSBXVBrPe4MC..8WbnUei2Ddi3BuVEdM0sw3Kw6MV7Wu'),
+(2, 'admin', '$2y$10$QCZTu5.xMQnP6IykHoeuhuL9wGP.hg0MGhH3ZEMLJJ.wBDlTvrwD.'),
+(3, 'admin', '$2y$10$rGRLHRrsDz.D4q1tX5ddxuJFGepkhbWKugWZoQ.TGAiDbKIbWXOcq'),
+(4, 'admin', '$2y$10$uDWlUdO45gvD7m/PYsqpJ.6/0dPnRUjBA033m5ySFPrTl3wh6QpSC');
 
 --
 -- Índices para tablas volcadas
@@ -77,6 +105,12 @@ ALTER TABLE `producto`
   ADD KEY `id_categoria` (`id_categoria`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -84,13 +118,19 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas

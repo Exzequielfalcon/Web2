@@ -50,7 +50,7 @@ class SkinsController extends SecuredController
 
   function HomeModificarProducto($param){
     $Categoria = $this->CategoriaModel->getCategoria();
-    $Producto = $this->ProductoModel->getProductobyId($param[0]);
+    $Producto = $this->ProductoModel->getProductobyId2($param[0]);
     $this->view->MostrarModificarProducto("Modificar producto", $Producto, $Categoria);
   }
 
