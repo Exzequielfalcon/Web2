@@ -70,6 +70,7 @@ class SkinsController extends SecuredController
   }
 
   function ModificarProducto(){
+      $id_producto = $_POST['id_producto'];
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
       $precio = $_POST["precio"];
@@ -80,7 +81,6 @@ class SkinsController extends SecuredController
         $pintada = 0;
       }
       $id_categoria = $_POST['id_categoria'];
-      $id_producto = $_POST['id_producto'];
       $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
   }

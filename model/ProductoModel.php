@@ -41,7 +41,7 @@ class ProductoModel
 }
 
 function ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto){
-  $sentencia = $this->db->prepare("update producto set nombre = ?, rareza = ?, precio = ?, anio_lanzamiento = ?, pintada = ?, id_categoria = ? where id_producto=?)");
+  $sentencia = $this->db->prepare("update producto set nombre = ?, rareza = ?, precio = ?, anio_lanzamiento = ?, pintada = ?, id_categoria = ? where id_producto=?");
   $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto));
 }
 
