@@ -23,12 +23,18 @@ class ProductoModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function getProductobyId($id){
+  function getCategoriaId($id){
     $sentencia = $this->db->prepare("select * from producto where id_categoria=$id");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function VerMas($param){
+    $id = $param;
+    $sentencia = $this->db->prepare("select * from producto where id_producto=$id");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
   function BorrarProducto($idProducto){
     $sentencia = $this->db->prepare( "DELETE from producto where id_producto=?");
     $sentencia->execute(array($idProducto));

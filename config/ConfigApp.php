@@ -23,7 +23,8 @@ class ConfigApp
       'logout'=> 'LoginController#logout',
       'singup' => 'RegisterController#singup',
       'agregar' => 'UsuarioController#agregar',
-      'buscarCategoria' => 'SkinsController#BuscarCategoria'
+      'buscarCategoria' => 'SkinsController#BuscarCategoria',
+      'vermas'=>'SkinsController#VerMas'
     ];
 
 }

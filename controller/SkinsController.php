@@ -54,6 +54,14 @@ class SkinsController extends SecuredController
     $this->view->MostrarModificarProducto("Modificar producto", $Producto, $Categoria);
   }
 
+  function VerMas($param){
+    $Categoria = $this->CategoriaModel->getCategoria();
+    $Producto = $this->ProductoModel->VerMas($param[0]);
+    $Tabla = $this->ProductoModel->GetTabla();
+    $this->view->VerMas("Ver Màs", $Producto, $Categoria, $Tabla, $param);
+  }
+
+
   function InsertarProducto(){
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
@@ -87,7 +95,7 @@ class SkinsController extends SecuredController
 
    function BuscarCategoria(){
       $id = $_POST['categoria'];
-      $Clase= $this->ProductoModel->getProductobyId($id);
+      $Clase= $this->ProductoModel->getCategoriaId($id);
       $this->HomeCategoria($Clase);
       //header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homec');
   }
@@ -95,7 +103,7 @@ class SkinsController extends SecuredController
   function getCategoria(){
     $claseid = $this->CategoriaModel->getPrimerCategoria();
     $id = $claseid['id_categoria'];
-    $clase= $this->ProductoModel->getProductobyId($id);
+    $clase= $this->ProductoModel->getCategoriaId($id);
     return $clase;
   }
 
