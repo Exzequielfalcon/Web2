@@ -18,13 +18,14 @@ class ConfigApp
       'borrar'=> 'AdminController#BorrarProducto',
       'borrarCategoria' => 'AdminController#BorrarCategoria',
       'modificarProducto' => 'AdminController#HomeModificarProducto',
+      'modificarCategoria' => 'AdminController#ModificarCategoria',
       'updateProducto'=> 'AdminController#ModificarProducto',
       'login' => 'LoginController#login',
       'verificarLogin'=> 'LoginController#verificarLogin',
       'logout'=> 'LoginController#logout',
       'singup' => 'RegisterController#singup',
       'agregar' => 'UsuarioController#agregar',
-      'buscarCategoria' => 'AdminController#BuscarCategoria',
+      'buscarCategoria' => 'SkinsController#BuscarCategoria',
       'vermas'=>'AdminController#VerMas'
     ];
 

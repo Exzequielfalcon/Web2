@@ -15,7 +15,7 @@
           {if (isset($smarty.session.User))}
 
           <td><a class="float-right" href="borrarCategoria/{$fila['id_categoria']}">Borrar</a></td>
-          <td><a class="float-right" href="borrar/{$Tabla['id_categoria']}">Modificar</a></td>
+          <td><a class="float-right" href="modificarCategoria/{$fila['id_categoria']}">Modificar</a></td>
         </tr>
         {/if}
         {/foreach}

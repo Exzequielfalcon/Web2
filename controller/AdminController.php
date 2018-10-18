@@ -74,7 +74,7 @@ class AdminController extends SecuredController
       }
       $id_categoria = $_POST['id_categoria'];
       $this->ProductoModel->InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
   }
 
   function ModificarProducto(){
@@ -90,7 +90,7 @@ class AdminController extends SecuredController
       }
       $id_categoria = $_POST['id_categoria'];
       $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
   }
 
    function BuscarCategoria(){
@@ -110,17 +110,22 @@ class AdminController extends SecuredController
   function InsertarCategoria(){
     $clase= $_POST["clase"];
     $this->CategoriaModel->InsertarCategoria($clase);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
 
 }
   function BorrarCategoria($param){
     $this->CategoriaModel->BorrarCategoria($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
 }
   function BorrarProducto($param){
     $this->ProductoModel->BorrarProducto($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
   }
+
+  function ModificarCategoria(){
+    $categoria = $_POST()
+  }
+
 }
 
  ?>

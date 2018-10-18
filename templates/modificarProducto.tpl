@@ -17,11 +17,11 @@
         </div>
         <div class="form-group">
           <label class="text-success" for="tituloForm">Precio</label>
-          <input type="text" class="form-control" id="tituloForm" name="precio"  value="{$Producto[0]['precio']}">
+          <input type="number" class="form-control" id="tituloForm" name="precio"  value="{$Producto[0]['precio']}">
         </div>
         <div class="form-group">
           <label class="violet" for="descripcionForm" >Año</label>
-          <input type="text" class="form-control" id="descripcionForm" name="anio_lanzamiento" value="{$Producto[0]['anio_lanzamiento']}">
+          <input type="number" class="form-control" id="descripcionForm" name="anio_lanzamiento" value="{$Producto[0]['anio_lanzamiento']}">
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="completadaForm" name="pintada">
