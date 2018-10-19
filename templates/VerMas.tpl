@@ -14,11 +14,6 @@
             <th scope="col">Año</th>
           </tr>
         </thead>
-        {if (isset($smarty.session.User))}
-        <form class="" action="vermasAdmin" method="get">
-          {else}
-        <form class="" action="vermas" method="get">
-          {/if}
 
         <tbody>
           <tr>

@@ -14,7 +14,11 @@
           </tr>
         </thead>
         <tbody>
-          <form method="post" action="buscarCategoria">
+          {if (isset($smarty.session.User))}
+          <form method="post" action="buscarCategoriaAdm">
+            {else}
+            <form method="post" action="buscarCategoria">
+              {/if}
             <div class="form-group">
               <label for="exampleFormControlSelect1">Selecciona la clase</label>
               <select class="form-control" id="exampleFormControlSelect1" name="categoria">
@@ -29,22 +33,25 @@
           <tr>
             <td>{$pro['nombre']}</td>
             <td>{$pro['rareza']}</td>
-            {if $pro['pintada']==0}
+          {if $pro['pintada']==0}
             <td>No</td>
-            {/if}
+          {/if}
             {if $pro['pintada']==1}
             <td>Si</td>
-            {/if}
+          {/if}
 
             <td>{$pro['precio']}</td>
             <td>{$pro['anio_lanzamiento']}</td>
-                {if (isset($smarty.session.User))}
+          {if (isset($smarty.session.User))}
             <td><a class="float-right" href="borrar/{$pro['id_producto']}">Borrar</a></td>
             <td><a class="float-right" href="modificarProducto/{$pro['id_producto']}">Modificar</a></td>
-              {/if}
+          {/if}
+          {if (isset($smarty.session.User))}
+            <td><a class="float-right" href="vermasadmin/{$pro['id_producto']}">Ver Mas</a></td>
+          {else}
             <td><a class="float-right" href="vermas/{$pro['id_producto']}">Ver Mas</a></td>
-
-            {/foreach}
+          {/if}
+          {/foreach}
           </tr>
         </tbody>
       </table>
