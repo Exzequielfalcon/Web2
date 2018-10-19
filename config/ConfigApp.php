@@ -18,15 +18,16 @@ class ConfigApp
       'borrar'=> 'AdminController#BorrarProducto',
       'borrarCategoria' => 'AdminController#BorrarCategoria',
       'modificarProducto' => 'AdminController#HomeModificarProducto',
-      'modificarCategoria' => 'AdminController#ModificarCategoria',
+      'modificarCategoria' => 'AdminController#HomeModificarCategoria',
       'updateProducto'=> 'AdminController#ModificarProducto',
+      'updateCategoria'=> 'AdminController#ModificarCategoria',
       'login' => 'LoginController#login',
       'verificarLogin'=> 'LoginController#verificarLogin',
       'logout'=> 'LoginController#logout',
       'singup' => 'RegisterController#singup',
       'agregar' => 'UsuarioController#agregar',
       'buscarCategoria' => 'SkinsController#BuscarCategoria',
-      'vermas'=>'AdminController#VerMas'
+      'vermas'=>'SkinsController#VerMas'
     ];
 
 }

@@ -1,5 +1,5 @@
 {include file="header.tpl"}
-{$Producto|@print_r}
+<!-- {$Producto|@print_r} -->
 <div class="row">
 <div class="col-lg-12">
     <div class="container-fluid">

@@ -18,9 +18,20 @@ class CategoriaModel
   }
 
   function getCategoria(){
-      $sentencia = $this->db->prepare( "select * from categoria");
+      $sentencia = $this->db->prepare( "SELECT * from categoria");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function getCategoriabyId($id){
+    $sentencia = $this->db->prepare("SELECT * from categoria where id_categoria=?");
+    $sentencia->execute(array($id));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  function ModificarCategoria($id_categoria, $clase){
+    $sentencia = $this->db->prepare("update categoria set clase = ? where id_categoria=?");
+    $sentencia->execute(array($clase, $id_categoria));
   }
 
 

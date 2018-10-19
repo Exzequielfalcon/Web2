@@ -23,29 +23,26 @@ class SkinsController
   function Home(){
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
-      $Tabla = $this->ProductoModel->GetTabla();
       $this->Clase = $this->getCategoria();
-        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null, $this->Clase);
+        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, null, $this->Clase);
       }
 
   function HomeCategoria($Clase){
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
-      $Tabla = $this->ProductoModel->GetTabla();
       $this->Clase = $Clase;
       if(isset($_SESSION["User"])){
         $User = $_SESSION["User"];
-      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $Tabla, $User, $this->Clase);
+      $this->view->Mostrar($this->Titulo, $Categoria, $Producto, $User, $this->Clase);
       }else{
-        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, $Tabla, null, $this->Clase);
+        $this->view->Mostrar($this->Titulo,$Categoria, $Producto, null, $this->Clase);
       }
   }
 
   function VerMas($param){
     $Categoria = $this->CategoriaModel->getCategoria();
     $Producto = $this->ProductoModel->VerMas($param[0]);
-    $Tabla = $this->ProductoModel->GetTabla();
-    $this->view->VerMas("Ver Màs", $Producto, $Categoria, $Tabla, $param);
+    $this->view->VerMas("Ver Màs", $Producto, $Categoria, $param);
   }
   function ModificarProducto(){
       $id_producto = $_POST['id_producto'];

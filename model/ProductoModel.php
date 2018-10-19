@@ -18,21 +18,21 @@ class ProductoModel
   }
 
   function getProducto(){
-    $sentencia = $this->db->prepare("select * from producto");
+    $sentencia = $this->db->prepare("SELECT * from producto");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function getCategoriaId($id){
-    $sentencia = $this->db->prepare("select * from producto where id_categoria=$id");
-    $sentencia->execute();
+    $sentencia = $this->db->prepare("SELECT * from producto where id_categoria=?");
+    $sentencia->execute(array($id));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function VerMas($param){
     $id = $param;
-    $sentencia = $this->db->prepare("select * from producto where id_producto=$id");
-    $sentencia->execute();
+    $sentencia = $this->db->prepare("SELECT * from producto where id_producto=?");
+    $sentencia->execute(array($id));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
   function BorrarProducto($idProducto){
@@ -42,8 +42,8 @@ class ProductoModel
   }
 
   function getProductobyId2($id){
-    $sentencia = $this->db->prepare("select * from producto where id_producto=$id");
-    $sentencia->execute();
+    $sentencia = $this->db->prepare("SELECT * from producto where id_producto=?");
+    $sentencia->execute(array($id));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
@@ -53,16 +53,10 @@ class ProductoModel
 }
 
 function ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto){
-  $sentencia = $this->db->prepare("update producto set nombre = ?, rareza = ?, precio = ?, anio_lanzamiento = ?, pintada = ?, id_categoria = ? where id_producto=?");
+  $sentencia = $this->db->prepare("UPDATE producto set nombre = ?, rareza = ?, precio = ?, anio_lanzamiento = ?, pintada = ?, id_categoria = ? where id_producto=?");
   $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto));
 }
 
-  function GetTabla(){
-      $sentencia =$this->db->prepare ("SELECT p.nombre, p.rareza,  p.precio, p.pintada, p.anio_lanzamiento, c.clase FROM producto p, categoria c WHERE c.id_categoria = c.id_categoria");
-      $sentencia->execute();
-      $temp = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-      return $temp;
-  }
 }
 
 

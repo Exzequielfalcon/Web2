@@ -15,17 +15,6 @@
           </tr>
         </thead>
         <tbody>
-          <form method="post" action="vermas">
-            <div class="form-group">
-              <label for="exampleFormControlSelect1">Selecciona la clase</label>
-              <select class="form-control" id="exampleFormControlSelect1" name="categoria">
-                {foreach from=$Categoria item=cate}
-                <option class="dropdown-item" value="{$cate['id_categoria']}" name="categoria">{$cate['clase']}</a>
-                  {/foreach}
-              </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Buscar</button>
-          </form>
           <tr>
             {foreach from=$Producto item=producto}
             <td>{$producto['nombre']}</td>
@@ -36,7 +25,7 @@
             {if $producto['pintada']==1}
             <td>Si</td>
             {/if}
-            <td>{$producto['precio']}</td>
+            <td>${$producto['precio']}</td>
             <td>{$producto['anio_lanzamiento']}</td>
 
             {/foreach}
