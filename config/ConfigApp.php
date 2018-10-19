@@ -26,8 +26,8 @@ class ConfigApp
       'logout'=> 'LoginController#logout',
       'singup' => 'RegisterController#singup',
       'agregar' => 'UsuarioController#agregar',
-      'buscarCategoria' => 'SkinsController#BuscarCategoria',
-      'vermas'=>'SkinsController#VerMas'
+      'buscarCategoria' => 'AdminController#BuscarCategoria',
+      'vermas'=>'AdminController#VerMas'
     ];
 
 }

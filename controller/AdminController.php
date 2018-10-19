@@ -60,8 +60,16 @@ class AdminController extends SecuredController
   function VerMas($param){
     $Categoria = $this->CategoriaModel->getCategoria();
     $Producto = $this->ProductoModel->VerMas($param[0]);
-    $this->view->VerMas("Ver Màs", $Producto, $Categoria,$param);
-  }
+    if(isset($_SESSION["User"])){
+      $User = $_SESSION["User"];
+      $this->view->VerMas("Ver Màs", $Producto, $Categoria, $param);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin/VerMas/',$param);
+    }else {
+      $this->view->VerMas("Ver Màs", $Producto, $Categoria, $param);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/home/VerMas/',$param);
+    }
+
+}
 
 
   function InsertarProducto(){
@@ -106,7 +114,13 @@ class AdminController extends SecuredController
       $id = $_POST['categoria'];
       $Clase= $this->ProductoModel->getCategoriaId($id);
       $this->HomeCategoria($Clase);
-      //header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homec');
+      if(isset($_SESSION["User"])){
+        $User = $_SESSION["User"];
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin/buscarCategoria');
+      }else {
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/home/buscarCategoria');
+
+      }
   }
 
   function getCategoria(){
