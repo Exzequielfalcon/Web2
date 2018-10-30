@@ -25,7 +25,7 @@ class ConfigApp
       'verificarLogin'=> 'LoginController#verificarLogin',
       'logout'=> 'LoginController#logout',
       'singup' => 'RegisterController#singup',
-      'agregar' => 'UsuarioController#agregar',
+      'agregar' => 'RegisterController#InsertUsuario',
       'buscarCategoria' => 'SkinsController#BuscarCategoria',
       'buscarCategoriaAdm' => 'AdminController#BuscarCategoria',
       'vermas'=>'SkinsController#VerMas',

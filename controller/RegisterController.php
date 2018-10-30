@@ -24,16 +24,18 @@ class RegisterController extends SecuredController
   function InsertUsuario(){
     $usuario = $_POST["usuario"];
     $pass = $_POST["pass"];
-    $this->model->InsertarUsuario($usuario,$pass);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-  }
-
+    $hash = password_hash($pass,PASSWORD_DEFAULT);
+    $this->model->InsertUsuario($usuario,$hash);
+    session_start();
+    $_SESSION["User"] = $User;
+    header("Location:".homeadmin);
+}
     function agregar(){
       if(isset($_POST['usuarioId'])){
         $lenght = strlen($_POST['usuarioId']);
             //Guardo todos lo sparametros que me envian desdde el formulario
-            $usuario = $_POST['usuarioId'];
-            $pass = $_POST['passwordId'];
+            $usuario = $_POST["usuario"];
+            $pass = $_POST["pass"];
             //Encripto la contraseña con bcrypt
             $hash = password_hash($pass,PASSWORD_DEFAULT);
             //le pido al modelo que me agregue al usuario

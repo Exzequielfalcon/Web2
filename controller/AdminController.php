@@ -63,10 +63,10 @@ class AdminController extends SecuredController
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];
       $this->view->VerMas("Ver Màs", $Producto, $Categoria, $param);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin/VerMas/',$param);
+      header("Location:" . '/homeadmin/VerMas/',$param);
     }else {
       $this->view->VerMas("Ver Màs", $Producto, $Categoria, $param);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/home/VerMas/',$param);
+      header("Location:" . '/home/VerMas/',$param);
     }
 
 }

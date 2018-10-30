@@ -24,7 +24,7 @@ class UsuarioModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
-  function InsertarUsuario($usuario, $pass){
+  function InsertUsuario($usuario, $pass){
     $sentencia = $this->db->prepare("INSERT INTO usuario(usuario, pass) VALUES(?,?)");
     $sentencia->execute(array($usuario, $pass));
   }
