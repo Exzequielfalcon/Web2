@@ -21,6 +21,7 @@ class UsuarioController extends SecuredController
   function MostrarUsuario(){
       $Usuarios = $this->model->GetUsuario();
       $this->view->Mostrar($this->Titulo, $Usuarios);
+      $this->view->ListaUser($this->Titulo, $Usuarios);
   }
   function agregar(){
     //Si no estan vacios
@@ -44,6 +45,13 @@ class UsuarioController extends SecuredController
     }
   }
 
-}
-
+  function NuevoAdm(){
+     if(isset($_POST['admin'])){
+       $admin =  1;
+     }else{
+       $admin =  0;
+     }
+     $this->UsuarioModel->NewAdmin($admin);
+   }
+  }
  ?>

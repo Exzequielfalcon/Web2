@@ -29,7 +29,7 @@ class SkinView
       //$smarty->debugging = true;
       $this->smarty->display('templates/modificarProducto.tpl');
   }
-  function MostrarModificarCategoria($Titulo, $Categoria){
+   function MostrarModificarCategoria($Titulo, $Categoria){
     $this->smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
     $this->smarty->assign('Categoria',$Categoria);
     $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
@@ -44,6 +44,13 @@ class SkinView
       //$smarty->debugging = true;
       $this->smarty->display('templates/VerMas.tpl');
     }
-}
 
+    function ListaUser($Titulo, $Usuarios){
+      $this->smarty->assign('Titulo',$Titulo);
+      $this->smarty->assign('Usuarios',$Usuarios);
+      $this->smarty->assign('NewAdmin',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+      $this->smarty->display('templates/ListaUser.tpl');
+
+    }
+  }
  ?>

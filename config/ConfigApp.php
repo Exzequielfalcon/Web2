@@ -1,6 +1,5 @@
 <?php
 define('ADMINHOME', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
-
 define('LOGIN', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/login');
 define('LOGOUT', 'Location: http://'.$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/logout');
 
@@ -29,7 +28,8 @@ class ConfigApp
       'buscarCategoria' => 'SkinsController#BuscarCategoria',
       'buscarCategoriaAdm' => 'AdminController#BuscarCategoria',
       'vermas'=>'SkinsController#VerMas',
-      'vermasadmin'=>'AdminController#VerMas'
+      'vermasadmin'=>'AdminController#VerMas',
+      'NewAdmin'=>'UsuarioController#NuevoAdm'
     ];
 
 }

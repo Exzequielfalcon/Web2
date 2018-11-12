@@ -71,7 +71,6 @@ class AdminController extends SecuredController
 
 }
 
-
   function InsertarProducto(){
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];

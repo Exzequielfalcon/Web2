@@ -35,6 +35,11 @@ class UsuarioModel
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+
+  function NewAdmin($Admin){
+      $sentencia = $this->db->prepare("INSERT INTO usuario(admin) VALUES(?)");
+      $sentencia->execute(array($Admin));
+    }
 }
 
 
