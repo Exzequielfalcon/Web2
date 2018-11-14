@@ -9,6 +9,17 @@ require_once "./controller/SecuredController.php";
 require_once "./controller/AdminController.php";
 require_once "./controller/RegisterController.php";
 
+function dataBase(){
+try{
+  $connection = new PDO('mysql:host=localhost;dbname=skin_rocket;charset=utf8', 'root', '');
+}catch(Exception $e){
+  $db = new PDO('mysql:host=localhost;charset=utf8', 'root', '');
+      $sql = file_get_contents('skin_rocket.sql');
+      $db->exec($sql);
+      }
+}
+
+dataBase();
 function parseURL($url)
 {
   $urlExploded = explode('/', $url);
