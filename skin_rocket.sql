@@ -6,7 +6,9 @@
 -- Tiempo de generación: 18-10-2018 a las 03:36:47
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
+CREATE database skin_rocket;
 
+use skin_rocket;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
