@@ -1,5 +1,5 @@
 <?php
-require_once  "./view/SkinView.php";
+require_once  "./view/UsuarioView.php";
 require_once  "./model/UsuarioModel.php";
 require_once "SecuredController.php";
 
@@ -13,15 +13,14 @@ class UsuarioController extends SecuredController
   {
     parent::__construct();
 
-    $this->view = new SkinView();
-    $this->UsuarioModel = new UsuarioModel();
+    $this->view = new UsuarioView();
+    $this->model = new UsuarioModel();
     $this->Titulo = "Lista de Usuario";
   }
 
-  function MostrarUsuario(){
-      $Usuarios = $this->model->GetUsuario();
-      $this->view->Mostrar($this->Titulo, $Usuarios);
-      $this->view->ListaUser($this->Titulo, $Usuarios);
+  function MostrarUser(){
+      $Usuarios = $this->model->GetUser();
+      $this->view->MostrarUser($this->Titulo, $Usuarios);
   }
   function agregar(){
     //Si no estan vacios
@@ -46,12 +45,11 @@ class UsuarioController extends SecuredController
   }
 
   function NuevoAdm(){
-     if(isset($_POST['admin'])){
-       $admin =  1;
-     }else{
-       $admin =  0;
-     }
+     $admin =  1;
+     $admin = $_POST['admin'];
      $this->UsuarioModel->NewAdmin($admin);
+     $this->UsuarioView->MostrarUser($admin);
+
    }
   }
  ?>

@@ -29,7 +29,7 @@ class ConfigApp
       'buscarCategoriaAdm' => 'AdminController#BuscarCategoria',
       'vermas'=>'SkinsController#VerMas',
       'vermasadmin'=>'AdminController#VerMas',
-      'NewAdmin'=>'UsuarioController#NuevoAdm'
+      'NewAdmin'=>'UsuarioController#MostrarUser'
     ];
 
 }
