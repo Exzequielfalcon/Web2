@@ -36,7 +36,6 @@ class CategoriaModel
 
 
 function InsertarCategoria($clase){
-
   $sentencia = $this->db->prepare("INSERT INTO categoria(clase) VALUES(?)");
   $sentencia->execute(array($clase));
 }

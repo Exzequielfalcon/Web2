@@ -28,6 +28,7 @@ class LoginController
     session_destroy();
     header(LOGIN);
   }
+
   function InsertUsuario(){
     if(isset($_POST['usuarioId'])){
       $lenght = strlen($_POST['usuarioId']);
@@ -43,6 +44,13 @@ class LoginController
       }
     }
   }
+
+  function loginAfterSingUp($User, $pass){
+      session_start();
+      $_SESSION["User"] = $User;
+      header("Location:".homeadmin);
+  }
+
   function verificarLogin(){
       $User = $_POST["usuarioId"];
       $pass = $_POST["passwordId"];
