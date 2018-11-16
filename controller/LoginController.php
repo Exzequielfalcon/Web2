@@ -29,22 +29,6 @@ class LoginController
     header(LOGIN);
   }
 
-  function InsertUsuario(){
-    if(isset($_POST['usuarioId'])){
-      $lenght = strlen($_POST['usuarioId']);
-        if ($lenght >0){
-          //Guardo todos lo sparametros que me envian desdde el formulario
-          $usuario = $_POST['usuarioId'];
-          $pass = $_POST['passwordId'];
-          //Encripto la contraseña con bcrypt
-          $hash = password_hash($pass,PASSWORD_DEFAULT);
-          //le pido al modelo que me agregu al usuario
-          $this->UsuarioModel->insert($usuario,$pass);
-          header("Location:".HOME);
-      }
-    }
-  }
-
   function loginAfterSingUp($User, $pass){
       session_start();
       $_SESSION["User"] = $User;

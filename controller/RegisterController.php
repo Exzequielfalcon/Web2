@@ -28,15 +28,19 @@ class RegisterController extends SecuredController
       if(isset($_POST['usuario'])){
             //Guardo todos lo sparametros que me envian desdde el formulario
             $usuario = $_POST["usuario"];
-            $pass = $_POST["pass"];
-            //Encripto la contraseña con bcrypt
-            $hash = password_hash($pass,PASSWORD_DEFAULT);
-            //le pido al modelo que me agregue al usuario
-            $this->model->InsertUsuario($usuario,$hash);
-            $this->login->loginAfterSingUp($usuario, $pass);
-            header("Location:".homeadmin);
+            if($this->model->getUser($usuario)==null){
+              $pass = $_POST["pass"];
+              //Encripto la contraseña con bcrypt
+              $hash = password_hash($pass,PASSWORD_DEFAULT);
+              //le pido al modelo que me agregue al usuario
+              $this->model->InsertUsuario($usuario,$hash);
+              $this->login->loginAfterSingUp($usuario, $pass);
+              header("Location:".homeadmin);
+            } else{
+              $this->view->mostrarRegister("El usuario ya existe");
+            }
+          }
       }
-    }
 
 }
 

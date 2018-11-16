@@ -11,7 +11,6 @@
         <input type="password" class="form-control" name="passwordId" id="passwordId" placeholder="Password">
       </div>
       <div class="">
-
         {$Message}
       </div>
       <button type="submit" class="btn btn-primary">Login</button>
