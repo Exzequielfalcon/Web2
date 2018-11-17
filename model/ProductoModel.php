@@ -41,7 +41,7 @@ class ProductoModel
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
-  function getProductobyId2($id){
+  function getProductobyId($id){
     $sentencia = $this->db->prepare("SELECT * from producto where id_producto=?");
     $sentencia->execute(array($id));
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
