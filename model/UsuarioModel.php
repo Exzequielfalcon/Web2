@@ -16,12 +16,17 @@ class UsuarioModel
     .'dbname=skin_rocket;charset=utf8'
     , 'root', '');
   }
-
-  function GetUser(){
+  function GetUsuarios(){
       $sentencia = $this->db->prepare( "select * from usuario");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
+
+  function GetUser($user){
+       $sentencia = $this->db->prepare( "select * from usuario where usuario=? limit 1");
+       $sentencia->execute(array($user));
+       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+   }
 
   function InsertUsuario($usuario, $pass){
     $sentencia = $this->db->prepare("INSERT INTO usuario(usuario, pass) VALUES(?,?)");

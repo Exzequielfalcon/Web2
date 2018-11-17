@@ -19,7 +19,7 @@ class UsuarioController extends SecuredController
   }
 
   function MostrarUser(){
-      $Usuarios = $this->model->GetUser();
+      $Usuarios = $this->model->GetUsuarios();
       $this->view->MostrarUser($this->Titulo, $Usuarios);
   }
   function agregar(){
