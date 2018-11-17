@@ -1,6 +1,5 @@
 <?php
 
-
 require_once "./config/ConfigApp.php";
 require_once "./controller/SkinsController.php";
 require_once "./controller/UsuarioController.php";
@@ -9,17 +8,6 @@ require_once "./controller/SecuredController.php";
 require_once "./controller/AdminController.php";
 require_once "./controller/RegisterController.php";
 
-function dataBase(){
-try{
-  $connection = new PDO('mysql:host=localhost;dbname=skin_rocket;charset=utf8', 'root', '');
-}catch(Exception $e){
-  $db = new PDO('mysql:host=localhost;charset=utf8', 'root', '');
-      $sql = file_get_contents('skin_rocket.sql');
-      $db->exec($sql);
-      }
-}
-
-dataBase();
 function parseURL($url)
 {
   $urlExploded = explode('/', $url);
@@ -31,14 +19,14 @@ function parseURL($url)
 }
 
 if(isset($_GET['action'])){
-   #$urlData[ACTION] = borrarTarea
+   #$urlData[ACTION] = borrar
    #$urlData[PARAMS] = [1,2,3,4]
 
     $urlData = parseURL($_GET['action']);
     $action = $urlData[ConfigApp::$ACTION]; //home
     if(array_key_exists($action,ConfigApp::$ACTIONS)){
         $params = $urlData[ConfigApp::$PARAMS];
-        $action = explode('#',ConfigApp::$ACTIONS[$action]); //Array[0] -> TareasController [1] -> BorrarSkin
+        $action = explode('#',ConfigApp::$ACTIONS[$action]); //Array[0] -> TareasController [1] -> BorrarTarea
         $controller =  new $action[0]();
         $metodo = $action[1];
         if(isset($params) &&  $params != null){
@@ -48,7 +36,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new SkinsController();
+      $controller =  new TareasController();
       echo $controller->Home();
     }
 }
