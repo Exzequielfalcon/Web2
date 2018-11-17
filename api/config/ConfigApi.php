@@ -9,7 +9,10 @@ class ConfigApi
       'categoria#DELETE'=> 'CategoriaApiController#deleteCategoria',
       'categoria#POST'=> 'CategoriaApiController#InsertCategoria',
       'categoria#PUT'=> 'CategoriaApiController#setCategoria',
-      'producto#GET'=> 'ProductoApiController#getProductos'
+      'producto#GET'=> 'ProductoApiController#getProductos',
+      'producto#DELETE'=> 'ProductoApiController#deleteProducto',
+      'producto#POST'=> 'ProductoApiController#InsertProducto',
+      'producto#PUT'=> 'ProductoApiController#setProducto'
     ];
 
 }

@@ -15,10 +15,10 @@ class ProductoApiController extends Api{
 
     if(isset($param)){
         $id = $param[0];
-        $arreglo = $this->model->getCategoriabyId($id);
+        $arreglo = $this->model->getProductobyId($id);
         $data = $arreglo;
     }else{
-      $data = $this->model->getCategoria();
+      $data = $this->model->getProducto();
     }
       if(isset($data)){
         return $this->json_response($data, 200);
@@ -27,10 +27,10 @@ class ProductoApiController extends Api{
       }
   }
 
-  function deleteCategoria($param = null){
+  function deleteProducto($param = null){
     if(count($param) == 1){
         $id = $param[0];
-        $r =  $this->model->BorrarCategoria($id);
+        $r =  $this->model->BorrarProducto($id);
         if($r == false){
           return $this->json_response($r, 300);
         }
@@ -41,19 +41,19 @@ class ProductoApiController extends Api{
     }
   }
 
-  function InsertCategoria($param = null){
+  function InsertProducto($param = null){
 
-    $objetoJson = $this->getJSONData();
-    $r = $this->model->InsertarCategoria($objetoJson->clase);
+    $o = $this->getJSONData();
+    $r = $this->model->InsertarProducto($o->nombre, $o->rareza, $o->precio, $o->anio_lanzamiento, $o->pintada,$o->id_categoria);
 
     return $this->json_response($r, 200);
   }
 
-  function setCategoria($param = null){
+  function setProducto($param = null){
     if(count($param) == 1){
-      $idTarea = $param[0];
-      $objetoJson = $this->getJSONData();
-      $r = $this->model->ModificarCategoria($idTarea, $objetoJson->clase);
+      $id = $param[0];
+      $o = $this->getJSONData();
+      $r = $this->model->ModificarProducto($o->nombre, $o->rareza, $o->precio, $o->anio_lanzamiento, $o->pintada,$o->id_categoria, $id);
       return $this->json_response($r, 200);
     }else{
       return  $this->json_response("No task specified", 300);

@@ -3,6 +3,7 @@
 
 require_once "config/ConfigApi.php";
 require_once "controller/CategoriaApiController.php";
+require_once "controller/ProductoApiController.php";
 
 function parseURL($url)
 {
