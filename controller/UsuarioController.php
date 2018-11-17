@@ -1,5 +1,5 @@
 <?php
-require_once  "./view/SkinView.php";
+require_once  "./view/UsuarioView.php";
 require_once  "./model/UsuarioModel.php";
 require_once "SecuredController.php";
 
@@ -13,15 +13,14 @@ class UsuarioController extends SecuredController
   {
     parent::__construct();
 
-    $this->view = new SkinView();
-    $this->UsuarioModel = new UsuarioModel();
+    $this->view = new UsuarioView();
+    $this->model = new UsuarioModel();
     $this->Titulo = "Lista de Usuario";
   }
 
-  function MostrarUsuario(){
-      $Usuarios = $this->model->GetUsuario();
-      $this->view->Mostrar($this->Titulo, $Usuarios);
-      $this->view->ListaUser($this->Titulo, $Usuarios);
+  function MostrarUser(){
+      $Usuarios = $this->model->GetUser();
+      $this->view->MostrarUser($this->Titulo, $Usuarios);
   }
   function agregar(){
     //Si no estan vacios
@@ -29,12 +28,12 @@ class UsuarioController extends SecuredController
        //Guardo todo los parametros que me envian desde el formulario
        $Usuario = $_POST['usuario'];
        $pass = $_POST['pass'];
-       $db_User = $this->UsuarioModel->GetUser($User);
+       $db_User = $this->model->GetUser($User);
        if(empty($db_User)){
           //Encripto la contraseña con bcrypt
           $hash = password_hash($pass, PASSWORD_DEFAULT);
           //Le pido al modelo que me agregue al usuario
-          $this->UsuarioModel->InsertarUsuario($Usuario, $hash);
+          $this->model->InsertarUsuario($Usuario, $hash);
           header(LOGIN);
        }else{
          $this->UsuarioView->signUp('El usuario ya existe elige otro');
@@ -51,7 +50,7 @@ class UsuarioController extends SecuredController
      }else{
        $admin =  0;
      }
-     $this->UsuarioModel->NewAdmin($admin);
+     $this->model->NewAdmin($admin);
    }
   }
  ?>
