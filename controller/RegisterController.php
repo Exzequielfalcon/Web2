@@ -28,7 +28,7 @@ class RegisterController extends SecuredController
       if(isset($_POST['usuario'])){
             //Guardo todos lo sparametros que me envian desdde el formulario
             $usuario = $_POST["usuario"];
-            if($this->model->getUser($usuario)==null){
+            if($this->model->getUser($usuario)==!null){
               $pass = $_POST["pass"];
               //Encripto la contraseña con bcrypt
               $hash = password_hash($pass,PASSWORD_DEFAULT);
