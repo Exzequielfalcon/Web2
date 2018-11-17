@@ -23,6 +23,12 @@ class ProductoModel
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
+  function getImagenes($id){
+    $sentencia = $this->db->prepare("SELECT * from imagenes where id_producto=?");
+    $sentencia->execute(array($id));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   function getCategoriaId($id){
     $sentencia = $this->db->prepare("SELECT * from producto where id_categoria=?");
     $sentencia->execute(array($id));
@@ -38,7 +44,6 @@ class ProductoModel
   function BorrarProducto($idProducto){
     $sentencia = $this->db->prepare( "DELETE from producto where id_producto=?");
     $sentencia->execute(array($idProducto));
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
   }
 
   function getProductobyId($id){

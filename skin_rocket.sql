@@ -3,12 +3,10 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-10-2018 a las 03:36:47
+-- Tiempo de generación: 17-11-2018 a las 22:14:25
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
-CREATE database skin_rocket;
 
-use skin_rocket;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
@@ -40,7 +38,28 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id_categoria`, `clase`) VALUES
-(5, 'Carroceria');
+(8, 'Ruedas'),
+(9, 'Carrocerias');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `imagenes`
+--
+
+CREATE TABLE `imagenes` (
+  `id_imagen` int(11) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `id_producto` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `imagenes`
+--
+
+INSERT INTO `imagenes` (`id_imagen`, `url`, `id_producto`) VALUES
+(1, 'https://thumbs.gfycat.com/SoreBronzeAxisdeer-poster.jpg', 1),
+(2, 'https://i.ytimg.com/vi/qU7DnrcF1h4/maxresdefault.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -63,8 +82,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `rareza`, `precio`, `anio_lanzamiento`, `pintada`, `id_categoria`) VALUES
-(3, 'Breakout-Type-S', 'Importada', 150, 2017, 0, 5),
-(8, 'Breakout-Type-S', 'Importada', 150, 2018, 0, 5);
+(1, 'Dracosssssssss', 'Exotica', 150, 2017, 1, 8);
 
 -- --------------------------------------------------------
 
@@ -75,18 +93,23 @@ INSERT INTO `producto` (`id_producto`, `nombre`, `rareza`, `precio`, `anio_lanza
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(244) NOT NULL,
-  `pass` varchar(244) NOT NULL
+  `pass` varchar(244) NOT NULL,
+  `admin` int(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `usuario`, `pass`) VALUES
-(1, 'admin', '$2y$10$DR.Bh05VExSBXVBrPe4MC..8WbnUei2Ddi3BuVEdM0sw3Kw6MV7Wu'),
-(2, 'admin', '$2y$10$QCZTu5.xMQnP6IykHoeuhuL9wGP.hg0MGhH3ZEMLJJ.wBDlTvrwD.'),
-(3, 'admin', '$2y$10$rGRLHRrsDz.D4q1tX5ddxuJFGepkhbWKugWZoQ.TGAiDbKIbWXOcq'),
-(4, 'admin', '$2y$10$uDWlUdO45gvD7m/PYsqpJ.6/0dPnRUjBA033m5ySFPrTl3wh6QpSC');
+INSERT INTO `usuario` (`id_usuario`, `usuario`, `pass`, `admin`) VALUES
+(17, 'asdfsdf', '$2y$10$LDHUeAd6O6soRjASZn26BO2.H2QxG1AXm6CaItvs4N3MbuKHMm66.', 0),
+(18, 'asfasdf', '$2y$10$Nk7O7GmvNMAAr5SFABd/V.Ih7Cz/KaoSmjBUNVwNDvj/YUBbD5NE2', 0),
+(19, 'asdfasdfasdsdf', '$2y$10$hYPUgLiyBjTw6kWRnvtlsudGPWKwmgh0qCJGFE2NzvxCjr9rU1BGy', 0),
+(20, 'asdsa', '$2y$10$BtSPdsnwaiVvbVoBQtMN2.Hk.HSjdvFqlESOSoKTPNsoik3QTVFg6', 0),
+(21, 'admin', '$2y$10$QsS3MwGHKUIy8zxLn2dmDu8QJGFQYdxRaiQfsZdkHd/CJDMTz5YY2', 0),
+(22, 'asdf', '$2y$10$voglG.39Pz4ZYttvdXcDiey5HawLSyxH2t20DkTXG1C0nT8UznntS', 0),
+(23, '', '', 0),
+(24, '', '', 0);
 
 --
 -- Índices para tablas volcadas
@@ -98,6 +121,13 @@ INSERT INTO `usuario` (`id_usuario`, `usuario`, `pass`) VALUES
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`),
   ADD KEY `id_categoria` (`id_categoria`);
+
+--
+-- Indices de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD PRIMARY KEY (`id_imagen`),
+  ADD KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `producto`
@@ -120,23 +150,35 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `imagenes`
+--
+ALTER TABLE `imagenes`
+  ADD CONSTRAINT `imagenes_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`);
 
 --
 -- Filtros para la tabla `producto`

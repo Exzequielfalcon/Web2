@@ -60,12 +60,13 @@ class AdminController extends SecuredController
   function VerMas($param){
     $Categoria = $this->CategoriaModel->getCategoria();
     $Producto = $this->ProductoModel->VerMas($param[0]);
+    $Imagen = $this->ProductoModel->getImagenes($param[0]);
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];
-      $this->view->VerMas("Ver Màs", $Producto, $Categoria, $param);
+      $this->view->VerMas("Ver Más", $Producto, $Categoria, $param, $Imagen);
       header("Location:" . '/homeadmin/VerMas/',$param);
     }else {
-      $this->view->VerMas("Ver Màs", $Producto, $Categoria, $param);
+      $this->view->VerMas("Ver Más", $Producto, $Categoria, $param, $Imagen);
       header("Location:" . '/home/VerMas/',$param);
     }
 

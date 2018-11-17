@@ -36,10 +36,11 @@ class SkinView
     //$smarty->debugging = true;
     $this->smarty->display('templates/modificarCategoria.tpl');
   }
-    function VerMas($Titulo, $Producto, $Categoria, $param){
+    function VerMas($Titulo, $Producto, $Categoria, $param, $Imagen){
       $this->smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
       $this->smarty->assign('Producto',$Producto);
       $this->smarty->assign('Categoria',$Categoria);
+      $this->smarty->assign('Imagen',$Imagen);
       $this->smarty->assign('vermas',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
       //$smarty->debugging = true;
       $this->smarty->display('templates/VerMas.tpl');
