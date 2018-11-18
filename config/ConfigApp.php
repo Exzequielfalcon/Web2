@@ -29,7 +29,8 @@ class ConfigApp
       'buscarCategoriaAdm' => 'AdminController#BuscarCategoria',
       'vermas'=>'SkinsController#VerMas',
       'vermasadmin'=>'AdminController#VerMas',
-      'NewAdmin'=>'UsuarioController#MostrarUser'
+      'NewAdmin'=>'UsuarioController#MostrarUser',
+      'borrarImagen' => 'AdminController#BorrarImagen'
     ];
 
 }

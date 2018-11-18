@@ -4,6 +4,15 @@
      background-color: black;
 }
 
+.separateDiv{
+  margin-bottom:10px;
+}
+
+.nonDecoration a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .violet{
   color: DarkSlateBlue;
 }

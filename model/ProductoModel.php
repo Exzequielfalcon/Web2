@@ -46,6 +46,11 @@ class ProductoModel
     $sentencia->execute(array($idProducto));
   }
 
+  function BorrarImagen($id){
+    $sentencia = $this->db->prepare( "DELETE from imagenes where id_imagen=?");
+    $sentencia->execute(array($id));
+  }
+
   function getProductobyId($id){
     $sentencia = $this->db->prepare("SELECT * from producto where id_producto=?");
     $sentencia->execute(array($id));
@@ -57,10 +62,15 @@ class ProductoModel
     $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria));
 }
 
-function ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto){
-  $sentencia = $this->db->prepare("UPDATE producto set nombre = ?, rareza = ?, precio = ?, anio_lanzamiento = ?, pintada = ?, id_categoria = ? where id_producto=?");
-  $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto));
-}
+    function ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto){
+      $sentencia = $this->db->prepare("UPDATE producto set nombre = ?, rareza = ?, precio = ?, anio_lanzamiento = ?, pintada = ?, id_categoria = ? where id_producto=?");
+      $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto));
+    }
+
+    function InsertarImagen($url, $id_producto){
+      $sentencia = $this->db->prepare("INSERT INTO imagenes(url, id_producto) VALUES(?,?)");
+      $sentencia->execute(array($url, $id_producto));
+    }
 
 }
 

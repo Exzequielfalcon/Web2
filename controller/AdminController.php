@@ -49,7 +49,8 @@ class AdminController extends SecuredController
   function HomeModificarProducto($param){
     $Categoria = $this->CategoriaModel->getCategoria();
     $Producto = $this->ProductoModel->getProductobyId($param[0]);
-    $this->view->MostrarModificarProducto("Modificar producto", $Producto, $Categoria);
+    $Imagen = $this->ProductoModel->getImagenes($param[0]);
+    $this->view->MostrarModificarProducto("Modificar producto", $Producto, $Categoria, $Imagen);
   }
 
   function HomeModificarCategoria($param){
@@ -105,9 +106,18 @@ class AdminController extends SecuredController
       }else{
         $pintada = 0;
       }
+      $imagen = $_POST["imagen"];
+      if(isset($imagen)){
+        $this->ProductoModel->InsertarImagen($imagen, $id_producto);
+      }
       $id_categoria = $_POST['id_categoria'];
       $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
       header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+  }
+
+  function BorrarImagen($param){
+    $this->ProductoModel->BorrarImagen($param[0]);
+    $this->HomeModificarProducto($param);
   }
 
    function BuscarCategoria(){

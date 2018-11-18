@@ -23,17 +23,32 @@
           <label class="violet" for="descripcionForm" >Año</label>
           <input type="number" class="form-control" id="descripcionForm" name="anio_lanzamiento" value="{$Producto[0]['anio_lanzamiento']}">
         </div>
+        <div class="form-group">
+          <label class="violet" for="descripcionForm" >Agregar Imagen</label>
+          <input type="text" class="form-control" id="descripcionForm" name="imagen">
+        </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="completadaForm" name="pintada">
           <label class="form-check-label text-danger" for="completadaForm">Pintada?</label>
         </div>
-        <select name="id_categoria">
-          {foreach from=$Categoria item=cate}
+        <div class="separateDiv">
+          <select name="id_categoria">
+            {foreach from=$Categoria item=cate}
 
-          <option value="{$cate['id_categoria']}">{$cate['clase']}</option>
+            <option value="{$cate['id_categoria']}">{$cate['clase']}</option>
 
-          {/foreach}
-        </select>
+            {/foreach}
+          </select>
+
+        </div>
+
+        {foreach from=$Imagen item=img}
+        <div class="col-3 separateDiv">
+          <img class="img-fluid separateDiv" src="{$img['url']}" alt="">
+
+          <button type="button" class="btn btn-danger nonDecoration" ><a href="borrarImagen/{$img['id_imagen']}">Eliminar</a></button>
+        </div>
+        {/foreach}
         <button type="submit" class="btn btn-primary">Modificar</button>
       </form>
     </div>

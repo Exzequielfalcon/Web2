@@ -21,12 +21,14 @@ class SkinView
       $this->smarty->display('templates/home.tpl');
     }
 
-    function MostrarModificarProducto($Titulo, $Producto, $Categoria){
+    function MostrarModificarProducto($Titulo, $Producto, $Categoria, $Imagen){
       $this->smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
       $this->smarty->assign('Producto',$Producto);
       $this->smarty->assign('Categoria',$Categoria);
+      $this->smarty->assign('Imagen',$Imagen);
       $this->smarty->assign('home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
       //$smarty->debugging = true;
+
       $this->smarty->display('templates/modificarProducto.tpl');
   }
    function MostrarModificarCategoria($Titulo, $Categoria){
