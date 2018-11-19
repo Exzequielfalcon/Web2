@@ -3,12 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2018 a las 22:14:25
+-- Tiempo de generación: 19-11-2018 a las 17:27:27
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
-CREATE database skin_rocket;
-
-use skin_rocket;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -47,6 +44,26 @@ INSERT INTO `categoria` (`id_categoria`, `clase`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `comentario`
+--
+
+CREATE TABLE `comentario` (
+  `id_comentario` int(11) NOT NULL,
+  `comentario` varchar(350) NOT NULL,
+  `id_producto` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `comentario`, `id_producto`, `id_usuario`) VALUES
+(9, 'HOla', 1, 1);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `imagenes`
 --
 
@@ -61,8 +78,8 @@ CREATE TABLE `imagenes` (
 --
 
 INSERT INTO `imagenes` (`id_imagen`, `url`, `id_producto`) VALUES
-(1, 'https://thumbs.gfycat.com/SoreBronzeAxisdeer-poster.jpg', 1),
-(2, 'https://i.ytimg.com/vi/qU7DnrcF1h4/maxresdefault.jpg', 1);
+(2, 'https://i.ytimg.com/vi/qU7DnrcF1h4/maxresdefault.jpg', 1),
+(3, 'https://rocketcrates.com/img/p/3/0/0/8/3008-tm_thickbox_default.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -85,7 +102,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre`, `rareza`, `precio`, `anio_lanzamiento`, `pintada`, `id_categoria`) VALUES
-(1, 'Dracosssssssss', 'Exotica', 150, 2017, 1, 8);
+(1, 'Dracosssssssss', 'Exotica', 150, 2017, 0, 8);
 
 -- --------------------------------------------------------
 
@@ -105,14 +122,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`id_usuario`, `usuario`, `pass`, `admin`) VALUES
-(17, 'asdfsdf', '$2y$10$LDHUeAd6O6soRjASZn26BO2.H2QxG1AXm6CaItvs4N3MbuKHMm66.', 0),
-(18, 'asfasdf', '$2y$10$Nk7O7GmvNMAAr5SFABd/V.Ih7Cz/KaoSmjBUNVwNDvj/YUBbD5NE2', 0),
-(19, 'asdfasdfasdsdf', '$2y$10$hYPUgLiyBjTw6kWRnvtlsudGPWKwmgh0qCJGFE2NzvxCjr9rU1BGy', 0),
-(20, 'asdsa', '$2y$10$BtSPdsnwaiVvbVoBQtMN2.Hk.HSjdvFqlESOSoKTPNsoik3QTVFg6', 0),
-(21, 'admin', '$2y$10$QsS3MwGHKUIy8zxLn2dmDu8QJGFQYdxRaiQfsZdkHd/CJDMTz5YY2', 0),
-(22, 'asdf', '$2y$10$voglG.39Pz4ZYttvdXcDiey5HawLSyxH2t20DkTXG1C0nT8UznntS', 0),
-(23, '', '', 0),
-(24, '', '', 0);
+(1, 'admin', '$2y$10$mkYK80leUtRlQ1COo74ugOR7kllBqZVEn0y4t3e0XK8.18ls4GHji', 0);
 
 --
 -- Índices para tablas volcadas
@@ -124,6 +134,14 @@ INSERT INTO `usuario` (`id_usuario`, `usuario`, `pass`, `admin`) VALUES
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`),
   ADD KEY `id_categoria` (`id_categoria`);
+
+--
+-- Indices de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD KEY `id_producto` (`id_producto`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `imagenes`
@@ -156,10 +174,16 @@ ALTER TABLE `categoria`
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
+-- AUTO_INCREMENT de la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `imagenes`
 --
 ALTER TABLE `imagenes`
-  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_imagen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -171,11 +195,18 @@ ALTER TABLE `producto`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `imagenes`

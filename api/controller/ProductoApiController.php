@@ -43,6 +43,19 @@ class ProductoApiController extends Api{
       }
   }
 
+  function deleteComentario($param = null){
+    if(count($param) == 1){
+        $id = $param[0];
+        $r =  $this->model->BorrarComentario($id);
+        if($r == false){
+          return $this->json_response($r, 300);
+        }
+        return $this->json_response($r, 200);
+    }else{
+      return  $this->json_response("No task specified", 300);
+    }
+  }
+
   function deleteProducto($param = null){
     if(count($param) == 1){
         $id = $param[0];
@@ -81,6 +94,18 @@ class ProductoApiController extends Api{
       return  $this->json_response("No task specified", 300);
     }
   }
+
+  function setComentario($param = null){
+    if(count($param) == 1){
+      $id = $param[0];
+      $o = $this->getJSONData();
+      $r = $this->model->ModificarProducto($o->nombre, $o->rareza, $o->precio, $o->anio_lanzamiento, $o->pintada,$o->id_categoria, $id);
+      return $this->json_response($r, 200);
+    }else{
+      return  $this->json_response("No task specified", 300);
+    }
+  }
+
 
 
 }

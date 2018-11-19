@@ -63,6 +63,11 @@
      $sentencia->execute(array($id));
    }
 
+   function BorrarComentario($id_comentario){
+     $sentencia = $this->db->prepare( "DELETE from comentario where id_comentario=?");
+     $sentencia->execute(array($id_comentario)); 
+   }
+
    function getProductobyId($id){
      $sentencia = $this->db->prepare("SELECT * from producto where id_producto=?");
      $sentencia->execute(array($id));

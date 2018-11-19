@@ -15,6 +15,7 @@ class ConfigApi
       'producto#PUT'=> 'ProductoApiController#setProducto',
       'comentarios#GET' => 'ProductoApiController#getComentarios',
       'comentarios#POST' => 'ProductoApiController#InsertComentario',
+      'comentarios#DELETE' => 'ProductoApiController#deleteComentario'
     ];
 
 }
