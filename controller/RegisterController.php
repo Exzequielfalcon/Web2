@@ -1,47 +1,50 @@
-<?php
-require_once  "./view/UsuarioView.php";
-require_once  "./view/RegisterView.php";
-require_once  "./model/UsuarioModel.php";
-require_once "SecuredController.php";
-require_once "LoginController.php";
+  <?php
+  require_once  "./view/UsuarioView.php";
+  require_once  "./view/RegisterView.php";
+  require_once  "./model/UsuarioModel.php";
+  require_once "SecuredController.php";
+  require_once "LoginController.php";
 
-class RegisterController extends SecuredController
-{
-  private $view;
-  private $model;
-  private $Titulo;
-  private $login;
-
-  function __construct()
+  class RegisterController extends SecuredController
   {
-    $this->view = new RegisterView();
-    $this->model = new UsuarioModel();
-    $this->Titulo = "Lista de Usuario";
-    $this->login = new LoginController();
-  }
+    private $view;
+    private $model;
+    private $Titulo;
+    private $login;
 
-  function singup(){
-    $this->view->mostrarRegister();
-  }
+    function __construct()
+    {
+      $this->view = new RegisterView();
+      $this->model = new UsuarioModel();
+      $this->Titulo = "Lista de Usuario";
+      $this->login = new LoginController();
+    }
 
-  function InsertUsuario(){
-      if(isset($_POST['usuario'])){
-            //Guardo todos lo sparametros que me envian desdde el formulario
-            $usuario = $_POST["usuario"];
-            if($this->model->getUser($usuario)==!null){
-              $pass = $_POST["pass"];
-              //Encripto la contraseña con bcrypt
-              $hash = password_hash($pass,PASSWORD_DEFAULT);
-              //le pido al modelo que me agregue al usuario
-              $this->model->InsertUsuario($usuario,$hash);
-              $this->login->loginAfterSingUp($usuario, $pass);
-              header("Location:".homeadmin);
-            } else{
-              $this->view->mostrarRegister("El usuario ya existe");
-            }
-          }
+    function singup(){
+      $this->view->mostrarRegister();
+    }
+
+    function InsertUsuario(){
+      //Si no estan vacios
+      if((!empty($_POST['usuario'])) && (!empty($_POST['pass']))){
+         //Guardo todo los parametros que me envian desde el formulario
+         $Usuario = $_POST['usuario'];
+         $pass = $_POST['pass'];
+         $db_User = $this->model->GetUser($Usuario);
+         if($db_User==null){
+            //Encripto la contraseña con bcrypt
+            $hash = password_hash($pass, PASSWORD_DEFAULT);
+            //Le pido al modelo que me agregue al usuario
+            $this->model->InsertUsuario($Usuario, $hash);
+            $this->login->loginAfterSingUp($Usuario, $pass);
+         }else{
+           $this->view->mostrarRegister('El usuario ya existe elige otro');
+         }
+      }else{
+        //Si entro acá es porque algun campo no esta lleno
+        $this->view->mostrarRegister('Todos los campos deben estar llenos');
       }
+    }
+  }
 
-}
-
- ?>
+   ?>

@@ -12,7 +12,9 @@ class ConfigApi
       'producto#GET'=> 'ProductoApiController#getProductos',
       'producto#DELETE'=> 'ProductoApiController#deleteProducto',
       'producto#POST'=> 'ProductoApiController#InsertProducto',
-      'producto#PUT'=> 'ProductoApiController#setProducto'
+      'producto#PUT'=> 'ProductoApiController#setProducto',
+      'comentarios#GET' => 'ProductoApiController#getComentarios',
+      'comentarios#POST' => 'ProductoApiController#InsertComentario',
     ];
 
 }

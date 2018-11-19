@@ -42,7 +42,8 @@ class SkinsController
   function VerMas($param){
     $Categoria = $this->CategoriaModel->getCategoria();
     $Producto = $this->ProductoModel->VerMas($param[0]);
-    $this->view->VerMas("Ver Más", $Producto, $Categoria, $param);
+    $Imagen = $this->ProductoModel->getImagenes($param[0]);
+    $this->view->VerMas("Ver Más", $Producto, $Categoria, $param, $Imagen);
   }
   function ModificarProducto(){
       $id_producto = $_POST['id_producto'];

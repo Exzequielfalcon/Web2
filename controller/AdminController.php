@@ -65,7 +65,7 @@ class AdminController extends SecuredController
     if(isset($_SESSION["User"])){
       $User = $_SESSION["User"];
       $this->view->VerMas("Ver Más", $Producto, $Categoria, $param, $Imagen);
-      header("Location:" . '/homeadmin/VerMas/',$param);
+      header("Location:" . '/homeadmin/VerMas/', $param);
     }else {
       $this->view->VerMas("Ver Más", $Producto, $Categoria, $param, $Imagen);
       header("Location:" . '/home/VerMas/',$param);

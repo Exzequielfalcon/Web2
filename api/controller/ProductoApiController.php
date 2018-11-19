@@ -27,6 +27,22 @@ class ProductoApiController extends Api{
       }
   }
 
+  function getComentarios($param = null){
+
+    if(isset($param)){
+        $id_producto = $param[0];
+        $arreglo = $this->model->getComentarios($id_producto);
+        $data = $arreglo;
+    }else{
+      $data = $this->model->getComentarios();
+    }
+      if(isset($data)){
+        return $this->json_response($data, 200);
+      }else{
+        return $this->json_response(null, 404);
+      }
+  }
+
   function deleteProducto($param = null){
     if(count($param) == 1){
         $id = $param[0];
@@ -49,6 +65,12 @@ class ProductoApiController extends Api{
     return $this->json_response($r, 200);
   }
 
+  function InsertComentario($param = null){
+      $o = $this->getJSONData();
+      $r = $this->model->InsertComentario($o->comentario, $o->id_producto, $o->id_usuario);
+      return $this->json_response($r, 200);
+  }
+
   function setProducto($param = null){
     if(count($param) == 1){
       $id = $param[0];
@@ -58,7 +80,8 @@ class ProductoApiController extends Api{
     }else{
       return  $this->json_response("No task specified", 300);
     }
-
   }
+
+
 }
  ?>

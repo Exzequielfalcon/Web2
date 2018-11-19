@@ -1,6 +1,6 @@
 {include file="header.tpl"}
 <div class="row">
-  <div class="col-3">
+  <div class="col-5">
     <h1 class="text-white">Listado de items</h1>
     <br>
     <div class="container">
@@ -46,7 +46,7 @@
       </table>
     </div>
   </div>
-  <div class="col-9">
+  <div class="col-7">
     {foreach from=$Imagen item=img}
     <div class="col-7">
       <img class="img-fluid" src="{$img['url']}" alt="">
