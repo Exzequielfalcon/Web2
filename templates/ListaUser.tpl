@@ -13,18 +13,22 @@
                   <th scope="col">Name</th>
                   <th scope="col">Admin</th>
                   <th scope="col">¿Dar Permisos?</th>
-                  <th scope="col">¿Tiene Permisos?</th>
 
 
                 </tr>
               </thead>
-              <tbody id="tablaTour">
+              <tbody id="tablaTour" class="text-danger">
                 {foreach from=$Usuarios item=usuario}
                  <tr>
-                  <td>{$usuario['usuario']}</td><td>{$usuario['admin']}</td><td> <form class="form" action="NewAdmin" method="post">
-                    <button type="submit" class="btn btn-primary" id="admin">Dar Permisos</button></td>
-                  </form>
+                  <td>{$usuario['usuario']}</td>
+                  {if $usuario['admin']==1}
+                  <td>Si</td>
+                  <button type="submit" class="btn btn-primary" id="admin">Quitar Permisos</button></td>
 
+                  {else}
+                  <td>No</td>
+                  <button type="submit" class="btn btn-primary" id="admin">Dar Permisos</button></td>
+                  {/if}
                 </tr>
                  {/foreach}
               </tbody>

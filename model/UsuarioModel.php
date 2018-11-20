@@ -34,9 +34,9 @@ class UsuarioModel
   }
 
 
-  function NewAdmin($Admin){
-      $sentencia = $this->db->prepare("INSERT INTO usuario(admin) VALUES(?)");
-      $sentencia->execute(array($Admin));
+  function NewAdmin($Admin, $id_usuario){
+      $sentencia = $this->db->prepare("UPDATE usuario SET admin=? WHERE id_usuario=?");
+      $sentencia->execute(array($Admin, $id_usuario));
     }
 }
 

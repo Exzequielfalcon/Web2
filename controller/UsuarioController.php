@@ -29,7 +29,8 @@ class UsuarioController extends SecuredController
      }else{
        $admin =  0;
      }
-     $this->model->NewAdmin($admin);
+     $id_usuario=$this->model->getUser($_SESSION['User']);
+     $this->model->NewAdmin($admin, $id_usuario);
    }
   }
  ?>

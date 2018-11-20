@@ -6,6 +6,5 @@
 {include file="addCategoria.tpl"}
 {include file="addCategoriaView.tpl"}
 {include file="ListaUser.tpl"}
-
 {/if}
 {include file="footer.tpl"}
