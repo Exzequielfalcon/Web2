@@ -5,12 +5,6 @@
     <br>
     <div class="container">
       <table class="table table-hover table-dark">
-        <thead>
-          <tr>
-
-          </tr>
-        </thead>
-
         <tbody>
           {foreach from=$Producto item=producto}
             <tr>
@@ -39,11 +33,15 @@
               <td>{$producto['anio_lanzamiento']}</td>
             </tr>
             {/foreach}
-
           </tr>
         </tbody>
       </form>
       </table>
+      <button type="button" class="refresh" name="refresh">Refresh</button>
+      <section id="comentarios">
+          <td class="d-none" id = "id_prod" data="{$producto['id_producto']}">{$producto['id_producto']}</td>
+
+      </section>
     </div>
   </div>
   <div class="col-7">

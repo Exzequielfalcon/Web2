@@ -23,14 +23,17 @@ class UsuarioController extends SecuredController
       $this->view->MostrarUser($this->Titulo, $Usuarios);
   }
 
-  function NuevoAdm(){
-     if(isset($_POST['admin'])){
-       $admin =  1;
-     }else{
-       $admin =  0;
-     }
-     $id_usuario=$this->model->getUser($_SESSION['User']);
-     $this->model->NewAdmin($admin, $id_usuario);
+  function darPermiso($param){
+     $Admin= 1;
+     $this->model->NewAdmin($Admin, $param[0]);
+     header(ADMINHOME);
+   }
+
+   function quitarPermiso($param){
+     $Admin= 0;
+     $this->model->NewAdmin($Admin, $param[0]);
+     header(ADMINHOME);
+
    }
   }
  ?>

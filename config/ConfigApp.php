@@ -30,7 +30,9 @@ class ConfigApp
       'vermas'=>'SkinsController#VerMas',
       'vermasadmin'=>'AdminController#VerMas',
       'NewAdmin'=>'UsuarioController#MostrarUser',
-      'borrarImagen' => 'AdminController#BorrarImagen'
+      'borrarImagen' => 'AdminController#BorrarImagen',
+      'quitarPermiso' => 'UsuarioController#quitarPermiso',
+      'darPermiso' => 'UsuarioController#darPermiso'
     ];
 
 }

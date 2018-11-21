@@ -20,14 +20,15 @@
               <tbody id="tablaTour" class="text-danger">
                 {foreach from=$Usuarios item=usuario}
                  <tr>
+                   {if !($usuario['usuario'] == $smarty.session.User)}
                   <td>{$usuario['usuario']}</td>
                   {if $usuario['admin']==1}
                   <td>Si</td>
-                  <button type="submit" class="btn btn-primary" id="admin"><a href="quitarPermiso/{$usuario['id_usuario']}">Quitar Permisos</a></button></td>
-
+                  <td><button type="submit" class="btn btn-primary" id="admin"><a href="quitarPermiso/{$usuario['id_usuario']}">Quitar Permisos</a></button></td>
                   {else}
                   <td>No</td>
-                  <button type="submit" class="btn btn-primary" id="admin">Dar Permisos</button></td>
+              <td><button type="submit" class="btn btn-primary" id="admin"><a href="darPermiso/{$usuario['id_usuario']}">Dar Permisos</a></button></td>
+                  {/if}
                   {/if}
                 </tr>
                  {/foreach}

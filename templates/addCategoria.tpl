@@ -1,5 +1,4 @@
 <div class="row">
-
     <div class="col-lg-6">
       <div class="container">
         <h1 class="text-white">Parte de Categoria</h1>

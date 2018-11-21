@@ -1,30 +1,46 @@
 'use strict'
-let templateAlgo;
+let templateComentario;
+document.addEventListener("load", cargar);
+document.querySelector(".refresh").addEventListener("click", cargar);
 
-fetch('js/templates/algo.handlebars')
-.then(response => response.text())
-.then(template => {
-    templateAlgo = Handlebars.compile(template); // compila y prepara el template
-
-    getAlgo();
-});
-
-function getAlgo() {
-  let ID = document.querySelector(".ALGOID")
-    fetch("api/Algo"+ID)
-    .then(response => response.json())
-    .then(jsonAlgo => {
-        mostrarAlgo(jsonAlgo);
-    })
+function cargar(){
+  fetch('js/template/comentarios.handlebars')
+    .then(response => response.text())
+    .then(template => {
+      templatecomentarios = Handlebars.compile(template);
+      getComentarios();
+    });
 }
 
-function mostrarAlgo(jsonAlgo){
-  let context = { // como el assign de smarty
-        algo: jsonAlgo,
-        otra: "admin"
-    }
-    let html = templateTareas(context);
-    document.querySelector("#jsonAlgo-container").innerHTML = html;
+function getComentarios() {
+    let ID = document.querySelector('#id_prod').getAttribute("data");
+    console.log(ID);
+    fetch("api/comentarios/"+ID)
+    .then(r => r.json())
+    .then(jsonO => {
+        mostrarComentarios(jsonO);
+    })
+}
+function mostrarComentarios(jsonO){
+  let admin = document.querySelector(".admin").getAttribute("data");
+     console.log(admin);
+     if (admin==="admin") {
+       admin = 0;
+     }
+     else {
+       admin = 1;
+     }
+     console.log(admin);
+     let context = {
+         comentarios: jsonO,
+         esadmin: admin
+     }
+     let html = templatecomentarios(context);
+     document.querySelector("#comentarios").innerHTML = html;
+     let b = document.querySelectorAll(".borrar");
+
+     b.forEach(b=> {b.addEventListener("click",function(){borrar(b.getAttribute("data"))});
+        });
 }
 //TENES QUE CAMBIAR LOS AGLO POR TUS COSAS DE LA BBDD
 //REVISA URLS PARA TU api

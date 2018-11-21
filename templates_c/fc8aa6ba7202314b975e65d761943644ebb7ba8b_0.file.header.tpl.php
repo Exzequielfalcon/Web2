@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-12 19:24:17
+/* Smarty version 3.1.33, created on 2018-11-21 17:12:29
   from 'C:\xampp\htdocs\Proyectos\Web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5be9c5512b26b1_99276601',
+  'unifunc' => 'content_5bf583ed0107e7_50202852',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc8aa6ba7202314b975e65d761943644ebb7ba8b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\Web2\\templates\\header.tpl',
-      1 => 1542047008,
+      1 => 1542816740,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5be9c5512b26b1_99276601 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf583ed0107e7_50202852 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
 
@@ -43,6 +43,9 @@ function content_5be9c5512b26b1_99276601 (Smarty_Internal_Template $_smarty_tpl)
   <ul class="nav justify-content-end">
 
     <?php if ((isset($_SESSION['User']))) {?>
+    <div class="d-lg-none">
+      <input type="number" name="useradmin" value="1">
+    </div>
     <li class="nav-item">
       <a class="nav-link" href="homeadmin">Home</a>
     </li>

@@ -18,6 +18,9 @@
   <ul class="nav justify-content-end">
 
     {if (isset($smarty.session.User))}
+    <div class="d-lg-none">
+      <input type="number" name="useradmin" value="1">
+    </div>
     <li class="nav-item">
       <a class="nav-link" href="homeadmin">Home</a>
     </li>
