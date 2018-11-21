@@ -44,6 +44,8 @@ class LoginController
               //mostrar lista de tareas
               session_start();
               $_SESSION["User"] = $User;
+              $_SESSION["admin"] = $db_User[0]["admin"];
+              $_SESSION["id_usuario"] = $db_User[0]["id_usuario"];
               header("Location:".homeadmin);
           }else{
             $this->view->mostrarLogin("Contraseña incorrecta");

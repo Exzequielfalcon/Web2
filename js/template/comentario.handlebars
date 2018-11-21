@@ -2,8 +2,8 @@
  <ul class="list-group">
 {{useradmin}}
   {{#each comentarios}}
-      <li class="list-group-item list-group-item-dark">{{usuario}} ----- {{coment}}---{{nombre}}
-{{#if useradmin}}
+      <li class="list-group-item list-group-item-dark">{{id_usuario}} ----- {{id_producto}}---{{comentario}}
+{{#if "useradmin"}}
         <button class="borrar btn btn-dark" data="{{id_comentario}}">BORRAR</button></li>
 {{/if}}
   {{/each}}

@@ -7,6 +7,7 @@
       <table class="table table-hover table-dark">
         <tbody>
           {foreach from=$Producto item=producto}
+          <td class="d-none id_prod" data="{$producto['id_producto']}">{$producto['id_producto']}</td>
             <tr>
               <td class="text-danger font-weight-bold">Nombre</td>
               <td>{$producto['nombre']}</td>
@@ -37,10 +38,19 @@
         </tbody>
       </form>
       </table>
-      <button type="button" class="refresh" name="refresh">Refresh</button>
+      <button type="button" class="refresh"name="refresh">Refresh</button>
       <section id="comentarios">
-          <td class="d-none" id = "id_prod" data="{$producto['id_producto']}">{$producto['id_producto']}</td>
-
+      </section>
+      <section>
+        {if ($smarty.session.User) != null}
+        <form method="POST">
+          <section class="mt-2 form-group">
+            <input class=" form-control comentario col-5" placeholder="Comentario" type="text" name="" value="">
+          <section class="form-group mb-2">
+            <button type="button" class="comentar"name="button">Subir Comentario</button>
+          </section>
+        </form>
+        {/if}
       </section>
     </div>
   </div>
@@ -52,3 +62,4 @@
     {/foreach}
   </div>
 </div>
+{include file="footer.tpl"}
