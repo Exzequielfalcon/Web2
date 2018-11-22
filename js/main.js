@@ -1,7 +1,7 @@
 'use strict';
 let templateComentario;
 //document.addEventListener("load", cargar);
-document.querySelector(".refresh").addEventListener("click", cargar);
+document.addEventListener('DOMContentLoaded', cargar);
 document.querySelector(".comentar").addEventListener("click", comentar);
 
 
@@ -13,6 +13,7 @@ function cargar(){
       templateComentario = Handlebars.compile(template);
       getComentarios();
     });
+    setTimeout(cargar, 2000);
 }
 
 function getComentarios() {

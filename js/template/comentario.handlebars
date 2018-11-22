@@ -1,14 +1,14 @@
 {{#if admin}}
 <ul class="list-group">
   {{#each comentarios}}
-  <li class="list-group-item list-group-item-dark">{{comentario}}
+  <li class="list-group-item list-group-item-dark">{{comentario}} Puntaje: {{puntaje}} Usuario: {{usuario}}
 <button class="borrar btn btn-dark" data="{{id_comentario}}">BORRAR</button></li>
   {{/each}}
 </ul>
 {{else}}
 <ul class="list-group">
   {{#each comentarios}}
-  <li class="list-group-item list-group-item-dark">{{comentario}}
+  <li class="list-group-item list-group-item-dark">{{comentario}} Puntaje: {{puntaje}} Usuario: {{usuario}}
   {{/each}}
 </ul>
 {{/if}}

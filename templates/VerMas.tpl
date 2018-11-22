@@ -38,7 +38,6 @@
         </tbody>
       </form>
       </table>
-      <button type="button" class="refresh"name="refresh">Refresh</button>
       <section id="comentarios">
       </section>
       <section>
