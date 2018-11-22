@@ -49,30 +49,10 @@ class SkinsController
     $Imagen = $this->ProductoModel->getImagenes($param[0]);
     $this->view->VerMas("Ver Más", $Producto, $Categoria, $param, $Imagen);
   }
-  // function ModificarProducto(){
-  //     $id_producto = $_POST['id_producto'];
-  //     $nombre = $_POST["nombre"];
-  //     $rareza = $_POST["rareza"];
-  //     $precio = $_POST["precio"];
-  //     $año_lanzamiento = $_POST["anio_lanzamiento"];
-  //     $rutaTempImagenes = $_FILES['url']['tmp_name'];
-  //     die($rutaTempImagenes);
-  //     if(isset($_POST["pintada"])){
-  //       $pintada = 1;
-  //     }else{
-  //       $pintada = 0;
-  //     }
-  //     $id_categoria = $_POST['id_categoria'];
-  //     $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
-  //     $this->ProductoModel->insertImagenes($id_producto,$rutaTempImagenes);
-  //     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
-  // }
-
    function BuscarCategoria(){
       $id = $_POST['categoria'];
       $Clase= $this->ProductoModel->getCategoriaId($id);
       $this->HomeCategoria($Clase);
-      //header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homec');
   }
 
   function getCategoria(){
@@ -86,7 +66,7 @@ class SkinsController
 function agregarImagen(){
   $id_producto = $_POST["id_producto"];
   $rutaTempImagenes = $_FILES['url']['tmp_name'];
-  header(Home);
+  header(HOME);
 
 }
 }

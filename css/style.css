@@ -12,6 +12,11 @@
   margin-bottom:10px;
 }
 
+.tamano{
+  width: 500px;
+  height: 300px;
+}
+
 .nonDecoration a {
     color: #FFFFFF;
     text-decoration: none;

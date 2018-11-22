@@ -84,14 +84,14 @@ class AdminController extends SecuredController
       }
       $id_categoria = $_POST['id_categoria'];
       $this->ProductoModel->InsertarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+      header(ADMINHOME);
   }
 
   function ModificarCategoria(){
     $id_categoria = $_POST['id_categoria'];
     $clase = $_POST['clase'];
     $this->CategoriaModel->ModificarCategoria($id_categoria, $clase);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+    header(ADMINHOME);
   }
 
   // //function ModificarProducto(){
@@ -128,7 +128,7 @@ class AdminController extends SecuredController
       $id_categoria = $_POST['id_categoria'];
       $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
       $this->ProductoModel->InsertarImagen($id_producto,$rutaTempImagenes);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
+      header(ADMINHOME);
   }
   function BorrarImagen($param){
     $this->ProductoModel->BorrarImagen($param[0]);
@@ -141,9 +141,9 @@ class AdminController extends SecuredController
       $this->HomeCategoria($Clase);
       if(isset($_SESSION["User"])){
         $User = $_SESSION["User"];
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin/buscarCategoria');
+      header(ADMINHOME. '/buscarCategoria');
       }else {
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/home/buscarCategoria');
+      header(HOME. '/buscarCategoria');
 
       }
   }
@@ -158,16 +158,16 @@ class AdminController extends SecuredController
   function InsertarCategoria(){
     $clase= $_POST["clase"];
     $this->CategoriaModel->InsertarCategoria($clase);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+    header(ADMINHOME);
 
 }
   function BorrarCategoria($param){
     $this->CategoriaModel->BorrarCategoria($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+    header(ADMINHOME);
 }
   function BorrarProducto($param){
     $this->ProductoModel->BorrarProducto($param[0]);
-    header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+    header(ADMINHOME);
   }
 
 
