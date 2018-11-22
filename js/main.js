@@ -6,7 +6,7 @@ document.querySelector(".comentar").addEventListener("click", comentar);
 
 
 function cargar(){
-  console.log("entrso ");
+  console.log("entro cargar ");
   fetch('js/template/comentario.handlebars')
     .then(response => response.text())
     .then(template => {
@@ -26,17 +26,16 @@ function getComentarios() {
 }
 function mostrarComentarios(jsonO){
   let admin = document.querySelector(".admin").getAttribute("data");
-     console.log(admin);
-     if (admin==="admin") {
-       admin = 0;
-     }
-     else {
-       admin = 1;
-     }
+     if(admin === "admin"){
+        admin = true;
+    }else {
+       admin = false;
+        }
      console.log(admin);
      let context = {
          comentarios: jsonO,
-         useradmin: admin
+         admin: admin
+
      }
      let html = templateComentario(context);
      document.querySelector("#comentarios").innerHTML = html;
@@ -72,9 +71,3 @@ function borrar(id){
               .then(r => load())
               .catch(error => console.log("error"));
 }
-//TENES QUE CAMBIAR LOS AGLO POR TUS COSAS DE LA BBDD
-//REVISA URLS PARA TU api
-//EN EL TEMPLATE QUYE CREE MIRALO Y CAMBIA POR LO QUE TRAIGAS DE TU BBDD
-//TE LA COMES
-//CUANDO LO TENGAS HACEMOS EL CREAR, YO TODAVIA EN PROCESO CON ESO
-//YA TENES EL DE IMAGENES? TE LO PUEDO ROBAR? NO LO HICE PORQUE NO LO ENTIENDO

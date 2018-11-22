@@ -17,24 +17,22 @@
   <img src="./images/header.jpg" class="img-fluid" alt="">
   <ul class="nav justify-content-end">
     {if (isset($smarty.session.User))}
-    <button class="d-none admin" data="admin" data-id="{$smarty.session.id_usuario}"></button>
-    {if $smarty.session.admin === 1}
-    <button class="d-none admin" data="admin" data-nombre="{$smarty.session.User}"></button>
+    {if $smarty.session.admin == '1'}
+    <button class="admin" hidden="hidden" data="admin" data-nombre="{$smarty.session.User}"></button>
     {else}
-    <button class="d-none admin" data="noadmin" data-nombre="{$smarty.session.User}"></button>
+    <button class="admin" hidden="hidden" data="noadmin" data-nombre="{$smarty.session.User}"></button>
     {/if}
-    <div class="d-lg-none">
-      <input type="number" name="useradmin" value="1">
-    </div>
     <li class="nav-item">
       <a class="nav-link" href="homeadmin">Home</a>
     </li>
   <li class="nav-item">
     <a class="nav-link" href="logout">Logout</a>
   </li>
+  {if $smarty.session.admin === '1'}
   <li class="nav-item">
       <a class="nav-link" href="NewAdmin">Usuario</a>
     </li>
+    {/if}
   {else}
   <li class="nav-item">
     <a class="nav-link" href="home">Home</a>

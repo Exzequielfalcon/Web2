@@ -1,10 +1,14 @@
-
- <ul class="list-group">
-{{useradmin}}
+{{#if admin}}
+<ul class="list-group">
   {{#each comentarios}}
-      <li class="list-group-item list-group-item-dark">{{id_usuario}} ----- {{id_producto}}---{{comentario}}
-{{#if "useradmin"}}
-        <button class="borrar btn btn-dark" data="{{id_comentario}}">BORRAR</button></li>
-{{/if}}
+  <li class="list-group-item list-group-item-dark">{{comentario}}
+<button class="borrar btn btn-dark" data="{{id_comentario}}">BORRAR</button></li>
   {{/each}}
 </ul>
+{{else}}
+<ul class="list-group">
+  {{#each comentarios}}
+  <li class="list-group-item list-group-item-dark">{{comentario}}
+  {{/each}}
+</ul>
+{{/if}}

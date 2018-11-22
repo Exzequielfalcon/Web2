@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-21 21:20:37
+/* Smarty version 3.1.33, created on 2018-11-22 19:39:14
   from 'C:\xampp\htdocs\Proyectos\Web2\templates\header.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bf5be15c8b871_53748348',
+  'unifunc' => 'content_5bf6f7d28dc7f7_88866894',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'fc8aa6ba7202314b975e65d761943644ebb7ba8b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Proyectos\\Web2\\templates\\header.tpl',
-      1 => 1542831597,
+      1 => 1542911946,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bf5be15c8b871_53748348 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf6f7d28dc7f7_88866894 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
 
@@ -42,27 +42,24 @@ function content_5bf5be15c8b871_53748348 (Smarty_Internal_Template $_smarty_tpl)
   <img src="./images/header.jpg" class="img-fluid" alt="">
   <ul class="nav justify-content-end">
     <?php if ((isset($_SESSION['User']))) {?>
-    <button class="d-none admin" data="admin" data-id="<?php echo $_SESSION['id_usuario'];?>
-"></button>
-    <?php if ($_SESSION['admin'] === 1) {?>
-    <button class="d-none admin" data="admin" data-nombre="<?php echo $_SESSION['User'];?>
+    <?php if ($_SESSION['admin'] == '1') {?>
+    <button class="admin" hidden="hidden" data="admin" data-nombre="<?php echo $_SESSION['User'];?>
 "></button>
     <?php } else { ?>
-    <button class="d-none admin" data="noadmin" data-nombre="<?php echo $_SESSION['User'];?>
+    <button class="admin" hidden="hidden" data="noadmin" data-nombre="<?php echo $_SESSION['User'];?>
 "></button>
     <?php }?>
-    <div class="d-lg-none">
-      <input type="number" name="useradmin" value="1">
-    </div>
     <li class="nav-item">
       <a class="nav-link" href="homeadmin">Home</a>
     </li>
   <li class="nav-item">
     <a class="nav-link" href="logout">Logout</a>
   </li>
+  <?php if ($_SESSION['admin'] === '1') {?>
   <li class="nav-item">
       <a class="nav-link" href="NewAdmin">Usuario</a>
     </li>
+    <?php }?>
   <?php } else { ?>
   <li class="nav-item">
     <a class="nav-link" href="home">Home</a>
