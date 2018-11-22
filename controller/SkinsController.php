@@ -10,7 +10,7 @@ class SkinsController
   private $CategoriaModel;
   private $Titulo;
   private $SkinModel;
-
+  private $SESSION;
   function __construct()
   {
     $this->view = new SkinView();
@@ -18,9 +18,13 @@ class SkinsController
     $this->CategoriaModel = new CategoriaModel();
     $this->Titulo = "Rocket League";
     $this->Clase = $this->getCategoria();
+    $this->SESSION = session_start();
+
   }
 
   function Home(){
+      $SESSION;
+      
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
       $this->Clase = $this->getCategoria();
