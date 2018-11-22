@@ -27,7 +27,7 @@ function getComentarios() {
 function mostrarComentarios(jsonO){
   let admin = document.querySelector(".admin").getAttribute("data");
      if(admin === "admin"){
-        admin = true;
+       admin = true;
     }else {
        admin = false;
         }
@@ -56,18 +56,19 @@ function borrar(id){
     }
 
   function comentar(){
-  let ID = document.querySelector('.id_prod').getAttribute("data");
-  let crearComentario = {
-    "comentario": document.querySelector(".comentario").value,
-    "id_producto": ID,
-    "id_usuario": document.querySelector(".admin").getAttribute("data-id")
-  }
-  console.log(crearComentario);
-  fetch("api/comentarios/"+ID,  {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(crearComentario)
-              })
-              .then(r => load())
-              .catch(error => console.log("error"));
+      let ID = document.querySelector('.id_prod').getAttribute("data");
+      let crearComentario = {
+        "comentario": document.querySelector(".comentario").value,
+        "puntaje": document.querySelector(".puntaje").value,
+        "id_producto": ID,
+        "id_usuario": document.querySelector(".admin").getAttribute("data-id")
+      }
+      console.log(crearComentario);
+      fetch("api/comentarios/"+ID,  {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(crearComentario)
+                  })
+                  .then(r => load())
+                  .catch(error => console.log("error"));
 }

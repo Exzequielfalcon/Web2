@@ -65,7 +65,7 @@
 
    function BorrarComentario($id_comentario){
      $sentencia = $this->db->prepare( "DELETE from comentario where id_comentario=?");
-     $sentencia->execute(array($id_comentario)); 
+     $sentencia->execute(array($id_comentario));
    }
 
    function getProductobyId($id){
@@ -84,9 +84,9 @@
      $sentencia->execute(array($url, $id_producto));
    }
 
-   function InsertComentario($comentario,$id_producto, $user){
-     $sentencia = $this->db->prepare("INSERT INTO comentario (comentario, id_producto, id_usuario) VALUES (?,?,?)");
-     $sentencia->execute(array($comentario, $id_producto, $user));
+   function InsertComentario($comentario, $puntaje, $id_producto, $user){
+     $sentencia = $this->db->prepare("INSERT INTO comentario (comentario, puntaje, id_producto, id_usuario) VALUES (?,?,?,?)");
+     $sentencia->execute(array($comentario, $puntaje, $id_producto, $user));
    }
 
    function ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto){

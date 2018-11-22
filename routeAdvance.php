@@ -38,7 +38,7 @@ if(isset($_GET['action'])){
     $action = $urlData[ConfigApp::$ACTION]; //home
     if(array_key_exists($action,ConfigApp::$ACTIONS)){
         $params = $urlData[ConfigApp::$PARAMS];
-        $action = explode('#',ConfigApp::$ACTIONS[$action]); //Array[0] -> TareasController [1] -> BorrarTarea
+        $action = explode('#',ConfigApp::$ACTIONS[$action]);
         $controller =  new $action[0]();
         $metodo = $action[1];
         if(isset($params) &&  $params != null){
@@ -48,7 +48,7 @@ if(isset($_GET['action'])){
             echo $controller->$metodo();
         }
     }else{
-      $controller =  new TareasController();
+      $controller =  new SkinsController();
       echo $controller->Home();
     }
 }

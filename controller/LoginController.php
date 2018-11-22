@@ -31,7 +31,9 @@ class LoginController
 
   function loginAfterSingUp($User, $pass){
       session_start();
+      $db_User = $this->model->getUser($User);
       $_SESSION["User"] = $User;
+      $_SESSION["admin"] = $db_User[0]["admin"];
       header("Location:".homeadmin);
   }
 

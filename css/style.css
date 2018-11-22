@@ -4,6 +4,10 @@
      background-color: black;
 }
 
+.inputcomen{
+  size: 32;
+}
+
 .separateDiv{
   margin-bottom:10px;
 }

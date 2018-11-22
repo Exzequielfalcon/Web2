@@ -45,7 +45,17 @@
         {if ($smarty.session.User) != null}
         <form method="POST">
           <section class="mt-2 form-group">
-            <input class=" form-control comentario col-5" placeholder="Comentario" type="text" name="" value="">
+            <input class=" form-control comentario inputcomen" placeholder="Comentario" type="text" name="" value="">
+            <section class="form-group">
+              <label for="exampleFormControlSelect1">Puntaje</label>
+               <select class="form-control puntaje"  id="exampleFormControlSelect1">
+                 <option>1</option>
+                 <option>2</option>
+                 <option>3</option>
+                 <option>4</option>
+                 <option>5</option>
+               </select>
+             </section>
           <section class="form-group mb-2">
             <button type="button" class="comentar"name="button">Subir Comentario</button>
           </section>
