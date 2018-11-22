@@ -2,8 +2,8 @@
 {include file="ourhome.tpl"}
 {include file="homev.tpl"}
 {if (isset($smarty.session.User))}
-{include file="addProducto.tpl"}
 {if ($smarty.session.admin == '1')}
+{include file="addProducto.tpl"}
 {include file="addCategoria.tpl"}
 {include file="addCategoriaView.tpl"}
 {/if}

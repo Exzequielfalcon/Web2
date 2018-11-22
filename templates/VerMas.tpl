@@ -66,7 +66,7 @@
   <div class="col-7">
     {foreach from=$Imagen item=img}
     <div class="col-7">
-      <img class="img-fluid" src="{$img['url']}" alt="">
+      <img class="img-fluid tamano" src="{$img['url']}" alt="">
     </div>
     {/foreach}
   </div>

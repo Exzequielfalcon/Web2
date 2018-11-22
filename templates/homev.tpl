@@ -43,9 +43,13 @@
             <td>{$pro['precio']}</td>
             <td>{$pro['anio_lanzamiento']}</td>
           {if (isset($smarty.session.User))}
+          {if ($smarty.session.admin == '1')}
+
             <td><a class="float-right" href="borrar/{$pro['id_producto']}">Borrar</a></td>
             <td><a class="float-right" href="modificarProducto/{$pro['id_producto']}">Modificar</a></td>
           {/if}
+          {/if}
+
           {if (isset($smarty.session.User))}
             <td><a class="float-right" href="vermasadmin/{$pro['id_producto']}">Ver Mas</a></td>
           {else}

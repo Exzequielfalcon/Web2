@@ -132,7 +132,7 @@ class AdminController extends SecuredController
   }
   function BorrarImagen($param){
     $this->ProductoModel->BorrarImagen($param[0]);
-    $this->HomeModificarProducto($param);
+    header(ADMINHOME);
   }
 
    function BuscarCategoria(){
