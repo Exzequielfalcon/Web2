@@ -24,7 +24,7 @@ class SkinsController
 
   function Home(){
       $SESSION;
-      
+
       $Categoria = $this->CategoriaModel->getCategoria();
       $Producto = $this->ProductoModel->getProducto();
       $this->Clase = $this->getCategoria();
@@ -49,21 +49,24 @@ class SkinsController
     $Imagen = $this->ProductoModel->getImagenes($param[0]);
     $this->view->VerMas("Ver Más", $Producto, $Categoria, $param, $Imagen);
   }
-  function ModificarProducto(){
-      $id_producto = $_POST['id_producto'];
-      $nombre = $_POST["nombre"];
-      $rareza = $_POST["rareza"];
-      $precio = $_POST["precio"];
-      $año_lanzamiento = $_POST["anio_lanzamiento"];
-      if(isset($_POST["pintada"])){
-        $pintada = 1;
-      }else{
-        $pintada = 0;
-      }
-      $id_categoria = $_POST['id_categoria'];
-      $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
-  }
+  // function ModificarProducto(){
+  //     $id_producto = $_POST['id_producto'];
+  //     $nombre = $_POST["nombre"];
+  //     $rareza = $_POST["rareza"];
+  //     $precio = $_POST["precio"];
+  //     $año_lanzamiento = $_POST["anio_lanzamiento"];
+  //     $rutaTempImagenes = $_FILES['url']['tmp_name'];
+  //     die($rutaTempImagenes);
+  //     if(isset($_POST["pintada"])){
+  //       $pintada = 1;
+  //     }else{
+  //       $pintada = 0;
+  //     }
+  //     $id_categoria = $_POST['id_categoria'];
+  //     $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
+  //     $this->ProductoModel->insertImagenes($id_producto,$rutaTempImagenes);
+  //     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
+  // }
 
    function BuscarCategoria(){
       $id = $_POST['categoria'];
@@ -78,6 +81,13 @@ class SkinsController
     $clase= $this->ProductoModel->getCategoriaId($id);
     return $clase;
   }
-}
 
+
+function agregarImagen(){
+  $id_producto = $_POST["id_producto"];
+  $rutaTempImagenes = $_FILES['url']['tmp_name'];
+  header(Home);
+
+}
+}
  ?>

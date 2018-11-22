@@ -72,7 +72,6 @@ class AdminController extends SecuredController
     }
 
 }
-
   function InsertarProducto(){
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
@@ -95,26 +94,42 @@ class AdminController extends SecuredController
     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
   }
 
+  // //function ModificarProducto(){
+  //     $id_producto = $_POST['id_producto'];
+  //     $nombre = $_POST["nombre"];
+  //     $rareza = $_POST["rareza"];
+  //     $precio = $_POST["precio"];
+  //     $año_lanzamiento = $_POST["anio_lanzamiento"];
+  //     if(isset($_POST["pintada"])){
+  //       $pintada = 1;
+  //     }else{
+  //       $pintada = 0;
+  //     }
+  //     $imagen = $_POST["imagen"];
+  //     if(isset($imagen)){
+  //       $this->ProductoModel->InsertarImagen($imagen, $id_producto);
+  //     }
+  //     $id_categoria = $_POST['id_categoria'];
+  //     $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
+  //     header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+  // }
   function ModificarProducto(){
       $id_producto = $_POST['id_producto'];
       $nombre = $_POST["nombre"];
       $rareza = $_POST["rareza"];
       $precio = $_POST["precio"];
       $año_lanzamiento = $_POST["anio_lanzamiento"];
+      $rutaTempImagenes = $_FILES['url']['tmp_name'];
       if(isset($_POST["pintada"])){
         $pintada = 1;
       }else{
         $pintada = 0;
       }
-      $imagen = $_POST["imagen"];
-      if(isset($imagen)){
-        $this->ProductoModel->InsertarImagen($imagen, $id_producto);
-      }
       $id_categoria = $_POST['id_categoria'];
       $this->ProductoModel->ModificarProducto($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria, $id_producto);
-      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]). '/homeadmin');
+      $this->ProductoModel->InsertarImagen($id_producto,$rutaTempImagenes);
+      header("Location: http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]).'/home');
   }
-
   function BorrarImagen($param){
     $this->ProductoModel->BorrarImagen($param[0]);
     $this->HomeModificarProducto($param);

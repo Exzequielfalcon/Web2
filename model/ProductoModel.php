@@ -31,10 +31,10 @@
 
    function getComentarios($id_producto=null){
      if (isset($id_producto)) {
-       $sentencia = $this->db->prepare("SELECT * from comentario where id_producto=?");
+       $sentencia = $this->db->prepare("SELECT c.*, u.usuario FROM comentario c INNER JOIN usuario u ON (c.id_usuario = u.id_usuario) where id_producto=?");
        $sentencia->execute(array($id_producto));
      } else{
-       $sentencia = $this->db->prepare("SELECT * from comentario");
+       $sentencia = $this->db->prepare("SELECT c.*, u.usuario FROM comentario c INNER JOIN usuario u ON (c.id_usuario = u.id_usuario)");
        $sentencia->execute();
      }
      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
@@ -79,9 +79,13 @@
      $sentencia->execute(array($nombre, $rareza, $precio, $año_lanzamiento, $pintada,$id_categoria));
    }
 
-   function InsertarImagen($url, $id_producto){
-     $sentencia = $this->db->prepare("INSERT INTO imagenes(url, id_producto) VALUES(?,?)");
-     $sentencia->execute(array($url, $id_producto));
+   function InsertarImagen($id_producto, $rutaTempImagenes){
+     foreach ($rutaTempImagenes as $path) {
+     $destino = 'images/' . uniqid() . '.jpg';
+     move_uploaded_file($path, $destino);
+     $sentencia = $this->db->prepare("INSERT INTO imagenes(id_producto, url) VALUES(?,?)");
+     $sentencia->execute(array($id_producto,$destino));
+   }
    }
 
    function InsertComentario($comentario, $puntaje, $id_producto, $user){
