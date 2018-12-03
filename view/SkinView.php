@@ -10,7 +10,6 @@ class SkinView
       $this->smarty = new Smarty();
     }
 
-
     function Mostrar($Titulo, $Categoria, $Producto, $User, $Clase){
       $this->smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
       $this->smarty->assign('Categoria',$Categoria);

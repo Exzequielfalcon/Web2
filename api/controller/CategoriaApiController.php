@@ -12,7 +12,6 @@ class CategoriaApiController extends Api{
   }
 
   function getCategorias($param = null){
-
     if(isset($param)){
         $id = $param[0];
         $arreglo = $this->model->getCategoriabyId($id);

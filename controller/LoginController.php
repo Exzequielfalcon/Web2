@@ -34,6 +34,7 @@ class LoginController
       $db_User = $this->model->getUser($User);
       $_SESSION["User"] = $User;
       $_SESSION["admin"] = $db_User[0]["admin"];
+      $_SESSION["id_usuario"] = $db_User[0]["id_usuario"];
       header("Location:".homeadmin);
   }
 
